@@ -1,3 +1,5 @@
+import bedfordMillPond from './assets/bedford-mill-pond.svg'
+
 export default function Newsletter() {
   return (
     <article className="newsletter-page">
@@ -12,6 +14,7 @@ export default function Newsletter() {
             <div className="bedford-wrap"><span className="paint-swipe"></span><h1 className="bedford">BEDFORD</h1><span className="unofficial-stamp">UNOFFICIAL</span></div>
           </div>
           <div className="mast-art">
+            <img className="mast-photo" src={bedfordMillPond} alt="Illustration based on the Bedford mill pond and historic stone waterworks" />
             <div className="mast-slogan">SAME<br/>COMMUNITY.<br/><b>BRIGHTER</b><br/>IDEAS.</div>
             <span className="slogan-mark"></span>
           </div>
