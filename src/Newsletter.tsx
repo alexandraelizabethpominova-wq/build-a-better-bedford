@@ -2,10 +2,22 @@ export default function Newsletter() {
   return (
     <article className="newsletter-page">
       <div className="newsletter-mast">
-        <div className="newsletter-meta"><span>VOL. 1</span><span>ISSUE 1</span><span>MONTHLY NEWSLETTER</span><span>SEP 2026</span></div>
+        <div className="newsletter-meta">
+          <div><span>VOL. 1</span><i>｜</i><span>ISSUE 1</span><i>｜</i><span>MONTHLY NEWSLETTER</span></div>
+          <span>SEP 2026</span>
+        </div>
         <div className="newsletter-brand">
-          <div><h1>BUILD BETTER</h1><h1 className="bedford">BEDFORD</h1><span className="unofficial-stamp">UNOFFICIAL</span></div>
-          <div className="mast-art" aria-hidden="true"><span>SAFE STREETS</span><span>BETTER DESIGN</span><span>BRIGHTER IDEAS</span></div>
+          <div className="mast-title">
+            <h1>BUILD BETTER</h1>
+            <div className="bedford-line">
+              <h1 className="bedford">BEDFORD</h1>
+              <span className="unofficial-stamp">UNOFFICIAL</span>
+            </div>
+          </div>
+          <div className="mast-art" role="img" aria-label="Bridge over the Concord River">
+            <div className="mast-slogan">SAME<br/>COMMUNITY.<br/><b>BRIGHTER</b><br/>IDEAS.</div>
+            <span className="slogan-stroke"></span>
+          </div>
         </div>
         <p className="newsletter-kicker">A STUDENT-LED CIVIL ENGINEERING CLUB</p>
       </div>
