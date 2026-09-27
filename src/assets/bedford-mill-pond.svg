@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+<title id="title">Bedford mill pond illustration</title>
+<desc id="desc">Illustrated view based on the Bedford pond and historic stone waterworks reference, with reflective water, dense trees, stone wall and arched outlet.</desc>
+<defs>
+ <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#bfe3f6"/><stop offset="1" stop-color="#eef7e9"/></linearGradient>
+ <linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#315b53"/><stop offset=".55" stop-color="#173a39"/><stop offset="1" stop-color="#0b252b"/></linearGradient>
+ <linearGradient id="leaf" x1="0" x2="1"><stop stop-color="#173f2a"/><stop offset="1" stop-color="#6d9448"/></linearGradient>
+ <pattern id="stone" width="82" height="55" patternUnits="userSpaceOnUse"><rect width="82" height="55" fill="#8b836d"/><path d="M0 8h30l8 15h44M18 55l5-18h34l9 18" fill="none" stroke="#5f5a4e" stroke-width="5"/></pattern>
+ <filter id="soft"><feGaussianBlur stdDeviation="1.2"/></filter>
+</defs>
+<rect width="1200" height="720" fill="url(#sky)"/>
+<path d="M0 0h1200v245c-120-15-180-64-290-42-93 19-133 5-222-18-122-31-224 12-342 22C218 218 98 188 0 208Z" fill="url(#leaf)"/>
+<g fill="#285238"><circle cx="95" cy="164" r="122"/><circle cx="220" cy="120" r="145"/><circle cx="380" cy="150" r="135"/><circle cx="555" cy="115" r="154"/><circle cx="720" cy="150" r="140"/><circle cx="925" cy="118" r="165"/><circle cx="1110" cy="135" r="160"/></g>
+<g fill="#517543" opacity=".9"><circle cx="155" cy="210" r="88"/><circle cx="480" cy="205" r="105"/><circle cx="825" cy="205" r="98"/><circle cx="1060" cy="225" r="105"/></g>
+<path d="M0 338c220-50 414-22 593 9 185 32 377 22 607-29v402H0Z" fill="url(#water)"/>
+<path d="M665 282h535v188H665Z" fill="url(#stone)"/>
+<path d="M640 281h560v18H640Z" fill="#6d695b"/>
+<path d="M875 470v-72c0-52 43-95 95-95s95 43 95 95v72h-45v-68c0-31-22-56-50-56s-50 25-50 56v68Z" fill="#514e45"/>
+<path d="M924 470v-65c0-30 20-54 46-54s46 24 46 54v65Z" fill="#26393b"/>
+<ellipse cx="970" cy="472" rx="50" ry="13" fill="#d8e3dc" opacity=".55"/>
+<path d="M610 380c40 20 63 34 86 42 24 8 42 7 65 4v70c-49 8-103 0-151-29Z" fill="#f4f7ee"/>
+<path d="M610 388c44 25 87 44 151 39" fill="none" stroke="#d9f1f5" stroke-width="12"/>
+<g fill="#6d8d48"><ellipse cx="125" cy="565" rx="45" ry="13"/><ellipse cx="190" cy="610" rx="34" ry="10"/><ellipse cx="280" cy="530" rx="28" ry="9"/><ellipse cx="365" cy="646" rx="39" ry="11"/><ellipse cx="525" cy="568" rx="33" ry="10"/><ellipse cx="780" cy="620" rx="36" ry="10"/></g>
+<g stroke="#9bc3bb" stroke-width="4" opacity=".45"><path d="M40 460c150 22 280 8 405-17"/><path d="M95 510c205 24 335 5 480-20"/><path d="M470 585c180 18 350-6 510-31"/><path d="M580 665c175 9 340-13 510-42"/></g>
+<path d="M1090 205c-28 82-26 184-8 286" fill="none" stroke="#314b2c" stroke-width="22"/><path d="M1125 180c-35 110-22 220 4 325" fill="none" stroke="#47623a" stroke-width="15"/>
+</svg>
