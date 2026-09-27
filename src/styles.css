@@ -301,3 +301,4 @@ footer {
     padding: 64px 0;
   }
 }
+.nav-link-button,.link-button{border:0;background:none;padding:0;font:inherit;color:inherit;cursor:pointer}.nav-link-button{font-weight:650;font-size:.95rem}.link-button{text-decoration:underline}.back-home{position:sticky;top:12px;z-index:20;margin:12px 0 0 18px;border:1px solid #ccd8d0;background:#fff;padding:10px 15px;border-radius:999px;font-weight:800;cursor:pointer;box-shadow:0 5px 18px #18372718}
