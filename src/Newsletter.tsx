@@ -10,7 +10,7 @@ export default function Newsletter() {
         </div>
         <div className="newsletter-brand">
           <div className="mast-title">
-            <h1>BUILD BETTER</h1>
+            <h1>BUILD A BETTER</h1>
             <div className="bedford-wrap"><span className="paint-swipe"></span><h1 className="bedford">BEDFORD</h1><span className="unofficial-stamp">UNOFFICIAL</span></div>
           </div>
           <div className="mast-art">
