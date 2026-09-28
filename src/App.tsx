@@ -15,51 +15,51 @@ const focusAreas = [
 const projectProblems = [
   {
     number: '01',
-    title: 'Unsafe roads',
+    title: 'Crossing the Street Shouldn’t Be a Boss Battle',
     fact: 'Bedford records cite three pedestrian deaths in 2022–2024, including two on Concord Road.',
-    question: 'Could part of the danger be in the design itself — speed, visibility, crossing distance, lighting, or road geometry?'
+    question: 'If crossing the road feels like a level you have to survive, the design may be part of the problem. We can look at speed, visibility, crossing distance, lighting, and road geometry to see what the street is quietly telling people to do.'
   },
   {
     number: '02',
-    title: 'Dog park',
+    title: 'Where Do Bedford Dogs Go to Make Friends?',
     fact: 'Bedford has 1,162 registered pet dogs and about 6,000 households.',
-    question: 'Could a dedicated, well-designed dog park give dogs safer space to exercise and socialize while reducing conflicts on sidewalks and trails?'
+    question: 'A town with lots of dogs but no dog park leaves sidewalks and trails doing double duty. Could a well-designed place for dogs to run, play, and socialize make life easier for pets, owners, and everyone sharing public space?'
   },
   {
     number: '03',
-    title: 'Power resilience',
+    title: 'Why Does the Power Panic Every Time It Rains?',
     fact: 'Eversource maintains Bedford’s electric distribution grid and restores local outages.',
-    question: 'Why do storms still cause outages, and could tree management, undergrounding, microgrids, or other resilience ideas help?'
+    question: 'Storm arrives. Lights flicker. Everyone looks for a flashlight. Why does this happen so often, and could tree management, undergrounding, microgrids, or smarter grid design make Bedford more resilient?'
   },
   {
     number: '04',
-    title: 'Roadwork… then rework?',
+    title: 'Didn’t We Just Fix This Road?',
     fact: 'Bedford has recurring paving, utility, drainage, sewer, sidewalk, and transportation projects.',
-    question: 'Why are some streets opened or revisited repeatedly? Could utilities and road projects be coordinated more efficiently?'
+    question: 'A road gets paved. Then it gets opened again. Then cones return like a seasonal tradition. Why does this happen, and could utility, drainage, sewer, sidewalk, and paving work be coordinated more efficiently?'
   },
   {
     number: '05',
-    title: 'The bathroom dilemma',
+    title: 'Why Do Public Bathrooms Need Teams?',
     fact: 'Many public restrooms separate users by gender even when each toilet is already inside an individual enclosed stall.',
-    question: 'Could public restroom layouts improve privacy, accessibility, safety, and efficiency while working well for everyone?'
+    question: 'At home, one bathroom works for everyone. In public buildings, we often divide people into separate rooms even when toilets are already inside private stalls. Could better layouts improve privacy, accessibility, safety, and efficiency?'
   },
   {
     number: '06',
-    title: 'Disconnected walking + biking',
+    title: 'The Sidewalk Ends… Now What?',
     fact: 'The Town says the Concord Road trail crossing currently lacks continuous sidewalk or bicycle connections.',
-    question: 'Where else do Bedford’s sidewalks, crossings, and trails stop making sense — and how could those gaps be redesigned?'
+    question: 'A trail or sidewalk is useful right up until it suddenly stops. Where do Bedford’s walking and biking routes lose continuity, and how could those missing links be redesigned so a trip makes sense from start to finish?'
   },
   {
     number: '07',
-    title: 'Stormwater + flooding',
+    title: 'Where Does All That Rain Actually Go?',
     fact: 'Bedford is actively upgrading drainage capacity along Great Road and the Elmbrook watershed.',
-    question: 'Could greener streets, rain gardens, permeable surfaces, or better drainage reduce flooding while improving public space?'
+    question: 'Rain falls, puddles grow, drains work overtime. Could greener streets, rain gardens, permeable surfaces, or better drainage help Bedford manage water while making public spaces nicer too?'
   },
   {
     number: '08',
-    title: 'Hidden Bedford',
+    title: 'Bedford Has Secrets. Why Are They So Hard to Find?',
     fact: 'Bedford has historic places, trails, and infrastructure that can be easy to pass without noticing.',
-    question: 'Could better signs, maps, trail connections, or digital wayfinding make local history and public spaces easier to discover?'
+    question: 'Historic places, trails, and interesting bits of infrastructure can be surprisingly easy to miss. Could signs, maps, trail connections, or digital wayfinding make Bedford easier to explore and understand?'
   },
 ]
 
