@@ -15,49 +15,49 @@ const focusAreas = [
 const projectProblems = [
   {
     number: '01',
-    title: 'Why Is Crossing the Street Giving Final Boss Energy?',
+    title: 'Why Is Crossing Here So Sketchy?',
     fact: 'Bedford records cite three pedestrian deaths in 2022–2024, including two on Concord Road.',
     question: 'If crossing the road feels like a mini game where the objective is simply not getting hit, something is off. We can look at speed, visibility, crossing distance, lighting, and road geometry to see whether the street design is making the safe choice obvious—or weirdly difficult.'
   },
   {
     number: '02',
-    title: 'Bedford Dogs Have No Group Chat',
+    title: 'Where’s the Dog Park?',
     fact: 'Bedford has 1,162 registered pet dogs and about 6,000 households.',
     question: 'There are lots of dogs in Bedford, but no dedicated dog park. So sidewalks and trails become the unofficial meetup spot. Could a well-designed dog park give dogs room to run and socialize without turning every walk into surprise dog networking?'
   },
   {
     number: '03',
-    title: 'Why Does One Storm Turn Bedford Into Low-Power Mode?',
+    title: 'Why Does the Power Always Dip?',
     fact: 'Eversource maintains Bedford’s electric distribution grid and restores local outages.',
     question: 'Storm starts. Wi-Fi disappears. Chargers become precious artifacts. Why do outages happen so often, and could tree management, undergrounding, microgrids, or smarter grid design make Bedford less dramatic about bad weather?'
   },
   {
     number: '04',
-    title: 'POV: The Road Was Just Fixed',
+    title: 'Didn’t They Just Fix This?',
     fact: 'Bedford has recurring paving, utility, drainage, sewer, sidewalk, and transportation projects.',
     question: 'The road gets paved. Two months later: cones. Again. At this point the orange barrels have lore. Why does the same street keep getting reopened, and could utility, drainage, sewer, sidewalk, and paving work be coordinated better?'
   },
   {
     number: '05',
-    title: 'Why Are Public Bathrooms Still Team-Based?',
+    title: 'Why Are Bathrooms Still Split?',
     fact: 'Many public restrooms separate users by gender even when each toilet is already inside an individual enclosed stall.',
     question: 'At home, one bathroom works for everyone. In public, suddenly we’re sorting into teams—even when each toilet is already in its own stall. Could better layouts improve privacy, accessibility, safety, and efficiency without making the bathroom experience a whole social system?'
   },
   {
     number: '06',
-    title: 'The Sidewalk Really Said “Good Luck”',
+    title: 'Why Does the Sidewalk Just End?',
     fact: 'The Town says the Concord Road trail crossing currently lacks continuous sidewalk or bicycle connections.',
     question: 'You’re walking. Everything is fine. Then the sidewalk just… ends. Where do Bedford’s walking and biking routes lose continuity, and how could those missing links be redesigned so getting somewhere doesn’t require improvisation?'
   },
   {
     number: '07',
-    title: 'Rain Check: Where Is All This Water Supposed to Go?',
+    title: 'Why Is This Corner Always Flooded?',
     fact: 'Bedford is actively upgrading drainage capacity along Great Road and the Elmbrook watershed.',
     question: 'Rain falls. Giant puddle appears. Somebody’s sneaker is sacrificed. Could greener streets, rain gardens, permeable surfaces, or better drainage help Bedford manage stormwater without turning random corners into temporary ponds?'
   },
   {
     number: '08',
-    title: 'Bedford Lore Is Hidden Behind Zero Signage',
+    title: 'Why Is Bedford’s Cool Stuff So Hidden?',
     fact: 'Bedford has historic places, trails, and infrastructure that can be easy to pass without noticing.',
     question: 'Bedford has trails, historic places, and cool infrastructure, but sometimes you only find out they exist after someone’s parent mentions them. Could signs, maps, trail connections, or digital wayfinding make local history feel less like hidden side quests?'
   },
