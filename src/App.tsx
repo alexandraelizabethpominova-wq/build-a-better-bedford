@@ -65,17 +65,17 @@ const projectProblems = [
   },
   {
     number: '07',
-    icon: floodIcon,
-    title: 'Why Is This Corner Always Flooded?',
-    fact: 'Bedford is actively upgrading drainage capacity along Great Road and the Elmbrook watershed.',
-    question: 'Rain falls. Giant puddle appears. Somebody’s sneaker is sacrificed. Could greener streets, rain gardens, permeable surfaces, or better drainage help Bedford manage stormwater without turning random corners into temporary ponds?'
-  },
-  {
-    number: '08',
     icon: trailsIcon,
     title: 'Why Is Bedford’s Cool Stuff So Hidden?',
     fact: 'Bedford has historic places, trails, and infrastructure that can be easy to pass without noticing.',
     question: 'Bedford has trails, historic places, and cool infrastructure, but sometimes you only find out they exist after someone’s parent mentions them. Could signs, maps, trail connections, or digital wayfinding make local history feel less like hidden side quests?'
+  },
+  {
+    number: '08',
+    cta: true,
+    title: 'YOUR IDEA HERE',
+    fact: 'What Bedford problem do you notice that everyone else seems to walk past?',
+    question: 'Bring us something worth investigating. We can observe it, research it, sketch possibilities, and figure out what would need to be tested before calling it a real solution.'
   },
 ]
 
@@ -153,16 +153,19 @@ function App() {
       </div>
 
       <div className="problem-grid">
-        {projectProblems.map(problem => <article className="problem-card" key={problem.number}>
+        {projectProblems.map(problem => <article className={problem.cta ? 'problem-card problem-card-cta' : 'problem-card'} key={problem.number}>
           <div className="problem-card-top">
             <span>{problem.number}</span>
-            <div className="problem-heading">
-              <div className="road-sign"><img src={problem.icon} alt="" aria-hidden="true" /></div>
+            <div className={problem.cta ? 'problem-heading problem-heading-cta' : 'problem-heading'}>
+              {problem.cta
+                ? <div className="idea-mark">?</div>
+                : <div className="road-sign"><img src={problem.icon} alt="" aria-hidden="true" /></div>}
               <h2>{problem.title}</h2>
             </div>
           </div>
           <p className="problem-fact">{problem.fact}</p>
           <p className="problem-question">{problem.question}</p>
+          {problem.cta && <button className="idea-cta" onClick={() => go('join')}>Bring your idea <span>→</span></button>}
         </article>)}
       </div>
 
