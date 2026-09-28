@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 108" role="img" aria-labelledby="title desc">
+<title id="title">Build a Better Bedford</title>
+<desc id="desc">Blueprint bridge logo for the Build a Better Bedford civil engineering and community design club</desc>
+<g fill="none" stroke="#153f66" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M8 77h146M18 70C35 31 60 22 81 22s46 9 63 48M18 70h126"/>
+  <path d="M29 70V52m25 18V36m54 34V36m25 34V52M18 79V18m126 61V18M8 18h146"/>
+  <path d="M8 28h146M8 58h146" stroke-width="1" opacity=".42"/>
+  <path d="M31 18v61M81 18v61M131 18v61" stroke-width="1" opacity=".42"/>
+  <path d="M18 70 54 36 81 22l27 14 36 34" stroke-width="1.4"/>
+</g>
+<g fill="#0f2f4f" font-family="Arial,Helvetica,sans-serif">
+  <text x="174" y="34" font-size="24" font-weight="800" letter-spacing=".4">BUILD A BETTER</text>
+  <text x="174" y="61" font-size="31" font-weight="900" letter-spacing=".2">BEDFORD</text>
+  <text x="174" y="82" font-size="9.5" font-weight="600" letter-spacing="2.1">CIVIL ENGINEERING &amp; COMMUNITY DESIGN CLUB</text>
+</g>
+</svg>
