@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 620" role="img" aria-labelledby="title desc">
+<title id="title">Build a Better Bedford</title>
+<desc id="desc">Civil Engineering and Community Design Club logo with Bedford town forms and a green road.</desc>
+<defs>
+  <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#b7d989"/>
+    <stop offset="1" stop-color="#5b9b45"/>
+  </linearGradient>
+  <style>
+    .navy{fill:#0b3356}
+    .outline{fill:none;stroke:#0b3356;stroke-width:12;stroke-linecap:round;stroke-linejoin:round}
+    .title{font:900 88px Arial,Helvetica,sans-serif;letter-spacing:-3px}
+    .sub{font:600 26px Arial,Helvetica,sans-serif;letter-spacing:8px}
+  </style>
+</defs>
+
+<!-- title -->
+<g class="navy">
+  <text x="40" y="150" class="title">Build a</text>
+  <text x="40" y="250" class="title">Better</text>
+  <text x="40" y="350" class="title">Bedford</text>
+</g>
+
+<!-- green hill -->
+<path d="M470 70c78-52 190-21 230 63 22 46 20 90 6 126-38-28-81-42-126-41-43 1-83 13-118 34-11-21-15-48-12-79 4-43 10-76 20-103z" fill="url(#g)" opacity=".95"/>
+
+<!-- town icon -->
+<g class="outline">
+  <!-- tree -->
+  <path d="M485 230c0-31 24-55 54-55 10 0 21 3 29 8 8-25 31-42 58-42 34 0 62 27 62 62 0 2 0 5-1 7 24 7 42 29 42 56 0 31-25 57-56 57H543c-32 0-58-26-58-58 0-13 4-25 11-35z"/>
+  <path d="M557 282v92"/>
+  <!-- house -->
+  <path d="M610 298v-104"/>
+  <path d="M610 194l58-54 58 54"/>
+  <path d="M636 298v-58h65v58"/>
+  <!-- steeple -->
+  <path d="M728 298v-95"/>
+  <path d="M728 203l31-47 31 47"/>
+  <path d="M759 156v-23"/>
+  <path d="M790 298v-95"/>
+  <!-- ground -->
+  <path d="M575 298h230"/>
+</g>
+
+<!-- road swoosh -->
+<path d="M420 405c118-75 222-92 359-56-62 31-122 61-180 98-54 34-99 72-134 111 124-17 225-7 305 30-120 23-257 31-407 23l-14-26c79-45 153-85 220-119 57-29 101-49 131-60-95-18-188-13-280 18z" fill="#4f963f"/>
+<path d="M422 405c94-45 181-58 260-39-84 30-165 67-242 111-24 14-51 30-79 49 37-42 75-80 114-111z" fill="#f8f8f4"/>
+
+<!-- underline -->
+<rect x="45" y="397" width="245" height="7" rx="3.5" fill="#5b9b45"/>
+
+<!-- subtitle -->
+<g class="navy">
+  <text x="100" y="515" class="sub">CIVIL ENGINEERING &amp;</text>
+  <text x="65" y="570" class="sub">COMMUNITY DESIGN CLUB</text>
+</g>
+</svg>
