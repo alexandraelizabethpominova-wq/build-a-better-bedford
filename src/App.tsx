@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import Newsletter from './Newsletter'
-import homeVisual from './assets/bedford-home.jpg'
-import clubLogo from './assets/bbb-logo-final.png'
+import heroLogo from './assets/bbb-logo-hero.svg'
 import './newsletter.css'
 
 type Page = 'home' | 'about' | 'what-we-do' | 'projects' | 'newsletter' | 'join'
@@ -34,7 +33,7 @@ function App() {
   return <main className="site-shell">
     <header className="topbar">
       <button className="identity identity-button" onClick={() => go('home')} aria-label="Build a Better Bedford home">
-        <img className="site-logo" src={clubLogo} alt="Build a Better Bedford civil engineering and community design club" />
+        <span className="brand-text">Build a Better Bedford</span>
       </button>
 
       <button className="menu-toggle" onClick={() => setMenuOpen(v => !v)} aria-expanded={menuOpen} aria-label="Toggle navigation">
@@ -50,10 +49,9 @@ function App() {
     </header>
 
     {page === 'home' && <section className="viewport">
-      <figure className="bedford-visual">
-        <img src={homeVisual} alt="Watercolor illustration of a Bedford pond and historic stone waterworks" />
-        <figcaption>⌖ Bedford, Massachusetts</figcaption>
-      </figure>
+      <div className="hero-logo-wrap">
+        <img className="hero-logo-image" src={heroLogo} alt="Build a Better Bedford Civil Engineering and Community Design Club logo" />
+      </div>
 
       <div className="home-content">
         <p className="eyebrow">STUDENT-LED · BEDFORD, MASSACHUSETTS</p>
