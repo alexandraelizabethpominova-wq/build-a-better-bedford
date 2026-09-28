@@ -1,3 +1,7 @@
+import { useState } from 'react'
+import Newsletter from './Newsletter'
+import './newsletter.css'
+
 const focusAreas = [
   ['01', 'Local infrastructure', 'Observe Bedford streets, crossings, trails, drainage, and public spaces.'],
   ['02', 'Engineering + physics', 'Learn why structures work through calculations, models, building, and testing.'],
@@ -5,6 +9,8 @@ const focusAreas = [
 ]
 
 function App() {
+  const [page, setPage] = useState<'home' | 'newsletter'>('home')
+  if (page === 'newsletter') return <Newsletter onBack={() => setPage('home')} />
   return (
     <main className="site-shell">
       <header className="topbar">
@@ -15,6 +21,7 @@ function App() {
         <nav aria-label="Main navigation">
           <a href="#explore">Explore</a>
           <a href="#about">About</a>
+          <button className="nav-button" onClick={() => setPage('newsletter')}>Newsletter</button>
           <a className="join-link" href="#join">Join →</a>
         </nav>
       </header>
