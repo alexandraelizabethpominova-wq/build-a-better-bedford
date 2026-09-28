@@ -44,3 +44,7 @@
 
 .road-sign{overflow:hidden;padding:0;background:#fffdf3}
 .road-sign img{display:block;width:100%;height:100%;object-fit:cover}
+
+/* Newsletter can expand beyond the initial one-screen view. */
+.site-shell:has(.newsletter-page){height:auto;min-height:100svh;overflow:visible;grid-template-rows:auto auto auto}
+.site-shell:has(.newsletter-page) .newsletter-page{min-width:0;overflow:visible}
