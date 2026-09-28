@@ -41,3 +41,6 @@
 .problem-card:hover .road-sign{transform:rotate(-2deg)}
 .road-sign{transition:transform .16s ease}
 @media(max-width:760px){.hero-logo-wrap{padding:12px 0 24px}.hero-logo-image{width:min(94vw,520px);max-height:none}.problem-heading{grid-template-columns:48px 1fr}.road-sign{width:46px;height:46px}.road-sign svg{width:35px;height:35px}}
+
+.road-sign{overflow:hidden;padding:0;background:#fffdf3}
+.road-sign img{display:block;width:100%;height:100%;object-fit:cover}
