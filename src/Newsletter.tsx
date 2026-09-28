@@ -16,7 +16,7 @@ export default function Newsletter() {
         <p className="eyebrow">SEPTEMBER 2026 · ISSUE 01</p>
         <p className="newsletter-label">MONTHLY FIELD NOTE</p>
         <h1>Can you design <span>danger</span> out of a road?</h1>
-        <p className="newsletter-deck">A student look at how design, urbanism and engineering can make safer behavior easier and more intuitive.</p>
+        <p className="newsletter-deck">A look at how design, urbanism and engineering can make safer behavior easier and more intuitive.</p>
         <div className="newsletter-quote">If the environment influences behavior, engineering can help make the safer choice the easier choice.</div>
       </div>
 
@@ -27,7 +27,7 @@ export default function Newsletter() {
           <div><h2>{title}</h2><p>{text}</p></div>
         </article>)}
         <div className="newsletter-disclaimer">
-          <strong>Student concept, not an engineering plan.</strong>
+          <strong>Design exploration, not an engineering plan.</strong>
           <p>A real design would require site measurements, accessibility and drainage requirements, traffic data, sight-distance analysis, utilities and right-of-way constraints.</p>
         </div>
       </div>
@@ -88,7 +88,7 @@ export default function Newsletter() {
             <div>
               <h2>Then sketch a possible intervention.</h2>
               <p>Only after defining the design problem do we explore a response: shorter crossings, refuge space, clearer pedestrian connections, tighter geometry, stronger visual cues, or other changes that make the road feel slower and easier to read.</p>
-              <p className="solution-note">This image is a student concept for discussion — not a final engineering recommendation.</p>
+              <p className="solution-note">This image is a design sketch for discussion — not a final engineering recommendation.</p>
             </div>
             <figure>
               <img src={roadSolution} alt="Student concept for a safer Bedford road crossing" />
