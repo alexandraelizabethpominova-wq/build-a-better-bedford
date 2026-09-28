@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Newsletter from './Newsletter'
-import heroLogo from './assets/bbb-logo-hero.svg'
+import heroLogo from './assets/bbb-logo-final.png'
 import './newsletter.css'
 
 type Page = 'home' | 'about' | 'what-we-do' | 'projects' | 'newsletter' | 'join'
