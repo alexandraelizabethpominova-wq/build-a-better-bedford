@@ -31,7 +31,7 @@ export default function Newsletter() {
     </div>
 
     <details className="newsletter-expand">
-      <summary>See more <span>+</span></summary>
+      <summary><span className="summary-label more-label">See more</span><span className="summary-label less-label">See less</span><span className="summary-icon">+</span></summary>
       <div className="newsletter-expand-panel">
         <section className="design-problem">
           <p className="expand-kicker">01 · THE DESIGN PROBLEM</p>
