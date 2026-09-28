@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import Newsletter from './Newsletter'
-import heroLogo from './assets/bbb-logo-final.png'
 import './newsletter.css'
 
 type Page = 'home' | 'about' | 'what-we-do' | 'projects' | 'newsletter' | 'join'
@@ -101,8 +100,11 @@ function App() {
     </header>
 
     {page === 'home' && <section className="viewport">
-      <div className="hero-logo-wrap">
-        <img className="hero-logo-image" src={heroLogo} alt="Build a Better Bedford Civil Engineering and Community Design Club logo" />
+      <div className="hero-title-block" aria-label="Build a Better Bedford">
+        <p className="hero-kicker">CIVIL ENGINEERING & COMMUNITY DESIGN CLUB</p>
+        <h1 className="hero-brand-title">Build a<br/>Better<br/><span>Bedford</span></h1>
+        <div className="hero-rule"></div>
+        <p className="hero-tagline">IDEAS · DESIGN · REAL CHANGE</p>
       </div>
 
       <div className="home-content">
