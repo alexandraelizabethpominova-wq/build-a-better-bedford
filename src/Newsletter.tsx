@@ -115,4 +115,3 @@ export default function Newsletter() {
       </div>}
   </section>
 }
-}
