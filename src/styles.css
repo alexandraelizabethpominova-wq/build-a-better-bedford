@@ -52,3 +52,11 @@
 /* Newsletter can expand beyond the initial one-screen view without shrinking the opening composition. */
 .site-shell:has(.newsletter-page){height:auto;min-height:100svh;overflow:visible;grid-template-rows:auto auto auto}
 .site-shell:has(.newsletter-page) .newsletter-page{min-width:0;overflow:visible}
+
+.problem-card-cta{border-style:dashed;border-color:#7fa18c;background:#f3f7f3}
+.problem-card-cta .problem-card-top>span{color:#2f684b}
+.problem-heading-cta{grid-template-columns:60px 1fr}
+.idea-mark{width:58px;height:58px;border:2px dashed #2f684b;border-radius:12px;display:grid;place-items:center;color:#2f684b;font:600 28px/1 Georgia,"Times New Roman",serif;background:#fff}
+.problem-card-cta h2{color:#2f684b;letter-spacing:.02em}
+.idea-cta{margin-top:auto;align-self:flex-start;border:0;background:none;padding:14px 0 0;color:#2f684b;font-size:11px;font-weight:800;cursor:pointer;display:inline-flex;gap:8px;align-items:center}
+.idea-cta span{font-size:14px}
