@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Newsletter from './Newsletter'
 import homeVisual from './assets/bedford-home.jpg'
-import clubLogo from './assets/bbb-blueprint-logo.svg'
+import clubLogo from './assets/bbb-logo-final.png'
 import './newsletter.css'
 
 const focusAreas = [
