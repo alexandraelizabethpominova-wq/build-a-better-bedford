@@ -1,8 +1,10 @@
 import bedfordMillPond from './assets/bedford-mill-pond.svg'
 
-export default function Newsletter() {
+type NewsletterProps = { onBack: () => void }
+
+export default function Newsletter({ onBack }: NewsletterProps) {
   return (
-    <article className="newsletter-page">
+    <article className="newsletter-page">\n      <button type="button" className="newsletter-back" onClick={onBack}>← Build a Better Bedford</button>
       <div className="newsletter-mast">
         <div className="newsletter-meta">
           <div className="issue-meta"><span>VOL. 1</span><i>|</i><span>ISSUE 1</span><i>|</i><span>MONTHLY NEWSLETTER</span></div>
