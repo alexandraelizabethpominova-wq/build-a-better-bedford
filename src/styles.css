@@ -31,3 +31,13 @@
 .hero-logo-wrap{display:flex;align-items:center;justify-content:center;min-width:0;padding:1vh 0}
 .hero-logo-image{display:block;width:min(100%,620px);height:auto;max-height:70vh;object-fit:contain}
 @media(max-width:760px){.hero-logo-wrap{padding:12px 0 24px}.hero-logo-image{width:min(94vw,520px);max-height:none}}
+
+.hero-logo-wrap{display:flex;align-items:center;justify-content:center;min-width:0;padding:1vh 0}
+.hero-logo-image{display:block;width:min(100%,620px);height:auto;max-height:70vh;object-fit:contain}
+.problem-heading{display:grid;grid-template-columns:54px 1fr;gap:12px;align-items:center}
+.road-sign{width:52px;height:52px;border:3px solid #0b3558;border-radius:10px;background:#fffdf3;color:#0b3558;display:grid;place-items:center;box-shadow:0 2px 0 rgba(11,53,88,.08)}
+.road-sign svg{width:40px;height:40px;display:block}
+.problem-card{position:relative}
+.problem-card:hover .road-sign{transform:rotate(-2deg)}
+.road-sign{transition:transform .16s ease}
+@media(max-width:760px){.hero-logo-wrap{padding:12px 0 24px}.hero-logo-image{width:min(94vw,520px);max-height:none}.problem-heading{grid-template-columns:48px 1fr}.road-sign{width:46px;height:46px}.road-sign svg{width:35px;height:35px}}
