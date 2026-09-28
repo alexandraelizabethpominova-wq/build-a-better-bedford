@@ -11,6 +11,58 @@ const focusAreas = [
   ['03', 'Design + CAD', 'Turn ideas into sketches, digital models, and practical design concepts.'],
 ]
 
+
+const projectProblems = [
+  {
+    number: '01',
+    title: 'Unsafe roads',
+    fact: 'Bedford records cite three pedestrian deaths in 2022–2024, including two on Concord Road.',
+    question: 'Could part of the danger be in the design itself — speed, visibility, crossing distance, lighting, or road geometry?'
+  },
+  {
+    number: '02',
+    title: 'Dog park',
+    fact: 'Bedford has 1,162 registered pet dogs and about 6,000 households.',
+    question: 'Could a dedicated, well-designed dog park give dogs safer space to exercise and socialize while reducing conflicts on sidewalks and trails?'
+  },
+  {
+    number: '03',
+    title: 'Power resilience',
+    fact: 'Eversource maintains Bedford’s electric distribution grid and restores local outages.',
+    question: 'Why do storms still cause outages, and could tree management, undergrounding, microgrids, or other resilience ideas help?'
+  },
+  {
+    number: '04',
+    title: 'Roadwork… then rework?',
+    fact: 'Bedford has recurring paving, utility, drainage, sewer, sidewalk, and transportation projects.',
+    question: 'Why are some streets opened or revisited repeatedly? Could utilities and road projects be coordinated more efficiently?'
+  },
+  {
+    number: '05',
+    title: 'The bathroom dilemma',
+    fact: 'Many public restrooms separate users by gender even when each toilet is already inside an individual enclosed stall.',
+    question: 'Could public restroom layouts improve privacy, accessibility, safety, and efficiency while working well for everyone?'
+  },
+  {
+    number: '06',
+    title: 'Disconnected walking + biking',
+    fact: 'The Town says the Concord Road trail crossing currently lacks continuous sidewalk or bicycle connections.',
+    question: 'Where else do Bedford’s sidewalks, crossings, and trails stop making sense — and how could those gaps be redesigned?'
+  },
+  {
+    number: '07',
+    title: 'Stormwater + flooding',
+    fact: 'Bedford is actively upgrading drainage capacity along Great Road and the Elmbrook watershed.',
+    question: 'Could greener streets, rain gardens, permeable surfaces, or better drainage reduce flooding while improving public space?'
+  },
+  {
+    number: '08',
+    title: 'Hidden Bedford',
+    fact: 'Bedford has historic places, trails, and infrastructure that can be easy to pass without noticing.',
+    question: 'Could better signs, maps, trail connections, or digital wayfinding make local history and public spaces easier to discover?'
+  },
+]
+
 const labels: Record<Page, string> = {
   home: 'Home',
   about: 'About',
@@ -75,7 +127,27 @@ function App() {
 
     {page === 'newsletter' && <Newsletter />}
 
-    {page !== 'home' && page !== 'newsletter' && <section className="coming-page">
+    {page === 'projects' && <section className="projects-page">
+      <div className="projects-heading">
+        <div>
+          <p className="eyebrow">BEDFORD PROBLEM LAB</p>
+          <h1>Problems worth exploring.</h1>
+        </div>
+        <p>These are starting questions — not finished solutions. We observe, research, measure, sketch, model, and test before deciding what might actually work.</p>
+      </div>
+
+      <div className="problem-grid">
+        {projectProblems.map(problem => <article className="problem-card" key={problem.number}>
+          <div className="problem-card-top"><span>{problem.number}</span><h2>{problem.title}</h2></div>
+          <p className="problem-fact">{problem.fact}</p>
+          <p className="problem-question">{problem.question}</p>
+        </article>)}
+      </div>
+
+      <p className="projects-source">Starting facts: Town of Bedford transportation, public works and electricity pages; Bedford TAC meeting records; Bedford Town Clerk data reported by The Bedford Citizen.</p>
+    </section>}
+
+    {page !== 'home' && page !== 'newsletter' && page !== 'projects' && <section className="coming-page">
       <p className="eyebrow">{labels[page]}</p>
       <h1>Coming soon.</h1>
       <p>We’re preparing this part of Build a Better Bedford.</p>
