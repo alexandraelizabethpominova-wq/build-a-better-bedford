@@ -4,3 +4,18 @@
 .hero-logo-wrap{display:flex;align-items:center;justify-content:center;min-width:0}
 .hero-logo-image{display:block;width:min(100%,620px);height:auto;max-height:70vh;object-fit:contain}
 @media(max-width:760px){.brand-text{font-size:14px}.hero-logo-wrap{padding:8px 0 22px}.hero-logo-image{width:min(92vw,520px);max-height:none}}
+
+.projects-page{min-height:0;display:grid;grid-template-rows:auto 1fr auto;gap:18px;padding:1.5vh 0 2.2vh}
+.projects-heading{display:grid;grid-template-columns:1.15fr .85fr;gap:5vw;align-items:end}
+.projects-heading h1{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:clamp(38px,3.8vw,62px);font-weight:500;line-height:.98;letter-spacing:-.04em;color:#15241b}
+.projects-heading>p{margin:0;color:#718078;font-size:12px;line-height:1.55;max-width:560px}
+.problem-grid{min-height:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:12px}
+.problem-card{min-height:0;padding:16px;border:1px solid #dce1dc;border-radius:12px;background:rgba(255,255,255,.42);display:flex;flex-direction:column}
+.problem-card-top{display:grid;grid-template-columns:28px 1fr;gap:8px;align-items:start}
+.problem-card-top>span{padding-top:4px;color:#87928b;font:700 9px/1 monospace}
+.problem-card h2{margin:0;color:#183226;font-size:16px;line-height:1.15;letter-spacing:-.02em}
+.problem-fact{margin:12px 0 0;color:#4f5f56;font-size:10.5px;line-height:1.45;font-weight:650}
+.problem-question{margin:8px 0 0;color:#78837c;font-size:10px;line-height:1.45}
+.projects-source{margin:0;color:#979f9a;font-size:8px;line-height:1.35}
+@media(max-width:1050px){.problem-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto}.projects-page{overflow:auto}.site-shell:has(.projects-page){overflow:auto;height:auto;min-height:100svh}}
+@media(max-width:760px){.projects-page{display:block;padding:24px 0}.projects-heading{display:block}.projects-heading>p{margin:15px 0 22px}.problem-grid{display:grid;grid-template-columns:1fr;gap:10px}.problem-card{padding:15px}.projects-source{margin-top:16px}.site-shell:has(.projects-page){height:auto;overflow:visible}}
