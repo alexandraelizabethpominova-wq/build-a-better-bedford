@@ -4,3 +4,35 @@
 
 @media(max-width:760px){.newsletter-clean{display:block;padding:24px 0}.newsletter-intro h1{font-size:clamp(42px,12.5vw,60px)}.newsletter-deck{margin-top:15px}.newsletter-quote{margin:18px 0 30px}.newsletter-note{padding:12px 0}.newsletter-disclaimer{margin-bottom:8px}.newsletter-expand{margin-top:10px}.newsletter-expand-panel section{padding:22px 0}.expand-grid,.solution-layout,.inspiration-grid{grid-template-columns:1fr;gap:18px}.solution-layout img{max-height:none}}
 @media(max-height:720px) and (min-width:761px){.newsletter-clean{padding:1vh 0 2vh}.newsletter-intro h1{font-size:clamp(42px,4.4vw,64px)}.newsletter-deck{margin-top:12px}.newsletter-quote{margin-top:16px}.newsletter-notes-head{height:32px}.newsletter-note{padding:10px 0}.newsletter-disclaimer{margin-top:9px;padding:10px 12px}}
+
+/* Keep the original newsletter composition full-size; the expand control overlays the bottom edge instead of taking layout space. */
+.newsletter-page{position:relative}
+.newsletter-expand{margin:0 0 34px;border-top:0}
+.newsletter-expand>summary{
+  position:absolute;
+  left:0;
+  right:0;
+  top:calc(100svh - 116px - 30px - 46px);
+  height:46px;
+  z-index:5;
+  background:rgba(255,255,255,.96);
+  border-top:1px solid #d7ddd8;
+  border-bottom:1px solid #d7ddd8;
+  backdrop-filter:blur(8px);
+}
+.newsletter-expand-panel{margin-top:0}
+.less-label{display:none}
+.newsletter-expand[open] .more-label{display:none}
+.newsletter-expand[open] .less-label{display:inline}
+.newsletter-expand[open] .summary-icon{transform:rotate(45deg)}
+@media(max-width:760px){
+  .newsletter-expand>summary{
+    top:calc(100svh - 82px - 50px);
+  }
+}
+@media(max-height:720px) and (min-width:761px){
+  .newsletter-expand>summary{
+    top:calc(100svh - 72px - 30px - 42px);
+    height:42px;
+  }
+}
