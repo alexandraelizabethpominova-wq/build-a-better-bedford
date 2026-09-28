@@ -36,3 +36,35 @@
     height:42px;
   }
 }
+
+/* Simple drawer below the unchanged opening newsletter view. */
+.newsletter-clean{
+  min-height:calc(100svh - 146px);
+}
+.newsletter-expand{
+  position:static;
+  width:100%;
+  margin:0 0 34px;
+  border-top:1px solid #d7ddd8;
+  border-bottom:1px solid #d7ddd8;
+}
+.newsletter-expand>summary{
+  position:static;
+  height:auto;
+  padding:15px 0;
+  background:#fff;
+  border:0;
+  backdrop-filter:none;
+}
+.newsletter-expand-panel{
+  margin-top:0;
+  padding-top:14px;
+}
+@media(max-width:760px){
+  .newsletter-clean{min-height:auto}
+  .newsletter-expand>summary{position:static;height:auto}
+}
+@media(max-height:720px) and (min-width:761px){
+  .newsletter-clean{min-height:calc(100svh - 102px)}
+  .newsletter-expand>summary{position:static;height:auto}
+}
