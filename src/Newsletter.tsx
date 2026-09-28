@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import roadSolution from './assets/road_solution.png'
 
 const sections = [
@@ -7,7 +8,9 @@ const sections = [
 ]
 
 export default function Newsletter() {
-  return <section className="newsletter-page">
+  const [expanded, setExpanded] = useState(false)
+
+  return <section className={expanded ? 'newsletter-page expanded' : 'newsletter-page'}>
     <div className="newsletter-clean">
       <div className="newsletter-intro">
         <p className="eyebrow">SEPTEMBER 2026 · ISSUE 01</p>
@@ -28,11 +31,18 @@ export default function Newsletter() {
           <p>A real design would require site measurements, accessibility and drainage requirements, traffic data, sight-distance analysis, utilities and right-of-way constraints.</p>
         </div>
       </div>
+      <button
+        className="newsletter-drawer-toggle"
+        type="button"
+        aria-expanded={expanded}
+        onClick={() => setExpanded(value => !value)}
+      >
+        <span>{expanded ? 'See less' : 'See more'}</span>
+        <span className="drawer-symbol">{expanded ? '−' : '+'}</span>
+      </button>
     </div>
 
-    <details className="newsletter-expand">
-      <summary><span className="summary-label more-label">See more</span><span className="summary-label less-label">See less</span><span className="summary-icon">+</span></summary>
-      <div className="newsletter-expand-panel">
+    {expanded && <div className="newsletter-expand-panel">
         <section className="design-problem">
           <p className="expand-kicker">01 · THE DESIGN PROBLEM</p>
           <div className="expand-grid">
@@ -102,7 +112,7 @@ export default function Newsletter() {
             </article>
           </div>
         </section>
-      </div>
-    </details>
+      </div>}
   </section>
+}
 }
