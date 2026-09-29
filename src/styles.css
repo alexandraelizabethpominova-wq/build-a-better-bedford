@@ -264,3 +264,17 @@ footer{min-height:38px;font-size:9.5px}
   .idea-preview-wrap{height:auto}
   .idea-preview{height:330px!important;min-height:330px!important;max-height:330px}
 }
+
+
+/* One canonical style for community cards AND their live preview. */
+.submitted-project-card{min-height:0;height:100%;padding:16px 20px 17px}
+.submitted-project-card .problem-card-top{grid-template-columns:1fr}
+.submitted-project-card .problem-heading{grid-template-columns:58px 1fr;gap:12px;padding-right:34px}
+.submitted-project-card .road-sign{width:56px;height:56px}
+.submitted-project-card .problem-fact{margin-top:10px}
+.submitted-project-card .problem-question{margin-top:7px;line-height:1.45}
+.submitted-project-card .idea-byline{margin:auto 0 0;padding-top:12px}
+.submitted-placeholder{border-style:dashed!important;border-color:#2f684b!important;background:#fff!important;color:#2f684b;font-size:25px;font-weight:800}
+.submitted-placeholder span{display:block;line-height:1}
+@media(min-width:1051px){.idea-preview{height:100%!important;min-height:0!important;max-height:none}.idea-preview-wrap{height:330px}}
+@media(max-width:760px){.submitted-project-card{height:auto}.submitted-project-card .problem-heading{grid-template-columns:56px 1fr;padding-right:32px}.submitted-project-card .road-sign{width:54px;height:54px}.idea-preview-wrap{height:auto}}
