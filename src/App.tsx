@@ -112,8 +112,9 @@ function App() {
   const [ideaMessage, setIdeaMessage] = useState('')
   const projectsPerPage = 6
   const ideaCard = projectProblems.find(problem => problem.cta)!
-  const submittedProjectCards = submittedIdeas.map((idea, index) => ({
-    number: String(projectProblems.length + index).padStart(2, '0'),
+  const submittedProjectCards = submittedIdeas.map((idea) => ({
+    number: 'NEW',
+    isSubmitted: true,
     title: idea.title,
     fact: idea.subtitle,
     question: idea.description,
@@ -232,7 +233,7 @@ function App() {
 
       <div className="problem-grid">
         {visibleProjects.map(problem => <article className={problem.cta ? 'problem-card problem-card-cta' : 'problem-card'} key={problem.number}>
-          {!problem.cta && <span className="problem-index">{problem.number}</span>}
+          {!problem.cta && <span className={problem.isSubmitted ? 'problem-index problem-index-new' : 'problem-index'}>{problem.number}</span>}
           <div className="problem-card-top">
             <div className={problem.cta ? 'problem-heading problem-heading-cta' : 'problem-heading'}>
               {problem.cta
