@@ -60,3 +60,51 @@
 .problem-card-cta h2{color:#2f684b;letter-spacing:.02em}
 .idea-cta{margin-top:auto;align-self:flex-start;border:0;background:none;padding:14px 0 0;color:#2f684b;font-size:11px;font-weight:800;cursor:pointer;display:inline-flex;gap:8px;align-items:center}
 .idea-cta span{font-size:14px}
+
+
+/* Visibility scale-up: preserve layout while making the site easier to read and scan. */
+.brand-text{font-size:20px}
+.nav-button{font-size:14px}
+.join-link{padding:16px 24px;font-size:14px}
+.eyebrow{font-size:12px}
+.home-content h1,.coming-page h1{font-size:clamp(56px,5.1vw,84px)}
+.lede{font-size:17px;line-height:1.6}
+.focus-row{grid-template-columns:42px 1fr;gap:14px;padding:17px 0}
+.number{font-size:11px}
+.focus-row h2{font-size:20px}
+.focus-row p{font-size:13px;line-height:1.5}
+.actions{margin-top:22px}
+.primary{min-height:52px;padding:0 23px;font-size:14px}
+.quiet-link{font-size:14px}
+.about-line{font-size:11.5px;line-height:1.5}
+footer{min-height:38px;font-size:9.5px}
+.projects-heading h1{font-size:clamp(48px,4.6vw,74px)}
+.projects-heading>p{font-size:15px}
+.problem-card{padding:22px 22px 24px}
+.problem-card h2{font-size:21px}
+.problem-fact{font-size:14px}
+.problem-question{font-size:13.5px}
+.projects-source{font-size:10px}
+.problem-heading{grid-template-columns:64px 1fr;gap:14px}
+.road-sign,.idea-mark{width:62px;height:62px}
+.idea-cta{font-size:13px}
+
+@media(max-width:760px){
+  .brand-text{font-size:17px}
+  .nav-menu .nav-button,.nav-menu .join-link{font-size:15px;padding:15px 14px}
+  .eyebrow{font-size:11px}
+  .lede{font-size:16px}
+  .focus-row{grid-template-columns:38px 1fr;padding:14px 0}
+  .focus-row h2{font-size:19px}
+  .focus-row p{font-size:13px}
+  .primary{min-height:50px;font-size:14px}
+  .quiet-link{font-size:14px}
+  .about-line{font-size:11.5px}
+  .projects-heading>p{font-size:14px}
+  .problem-card{padding:20px}
+  .problem-card h2{font-size:20px}
+  .problem-fact{font-size:13.5px}
+  .problem-question{font-size:13px}
+  .problem-heading{grid-template-columns:56px 1fr}
+  .road-sign,.idea-mark{width:54px;height:54px}
+}
