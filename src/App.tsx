@@ -91,6 +91,10 @@ const labels: Record<Page, string> = {
 function App() {
   const [page, setPage] = useState<Page>('home')
   const [menuOpen, setMenuOpen] = useState(false)
+  const [projectPage, setProjectPage] = useState(0)
+  const projectsPerPage = 3
+  const projectPageCount = Math.ceil(projectProblems.length / projectsPerPage)
+  const visibleProjects = projectProblems.slice(projectPage * projectsPerPage, (projectPage + 1) * projectsPerPage)
 
   const joinClub = () => {
     window.open('https://forms.gle/ejjaRZzo5HMMtkVD7', '_blank', 'noopener,noreferrer')
@@ -157,7 +161,7 @@ function App() {
       </div>
 
       <div className="problem-grid">
-        {projectProblems.map(problem => <article className={problem.cta ? 'problem-card problem-card-cta' : 'problem-card'} key={problem.number}>
+        {visibleProjects.map(problem => <article className={problem.cta ? 'problem-card problem-card-cta' : 'problem-card'} key={problem.number}>
           <div className="problem-card-top">
             <span>{problem.number}</span>
             <div className={problem.cta ? 'problem-heading problem-heading-cta' : 'problem-heading'}>
@@ -171,6 +175,32 @@ function App() {
           <p className="problem-question">{problem.question}</p>
           {problem.cta && <button className="idea-cta" onClick={() => go('join')}>Bring your idea <span>→</span></button>}
         </article>)}
+      </div>
+
+      <div className="project-pagination" aria-label="Project pages">
+        <button
+          className="pagination-arrow"
+          onClick={() => setProjectPage(page => Math.max(0, page - 1))}
+          disabled={projectPage === 0}
+          aria-label="Previous project page"
+        >←</button>
+        <div className="pagination-pages">
+          {Array.from({ length: projectPageCount }, (_, index) =>
+            <button
+              key={index}
+              className={projectPage === index ? 'pagination-page active' : 'pagination-page'}
+              onClick={() => setProjectPage(index)}
+              aria-label={`Project page ${index + 1}`}
+              aria-current={projectPage === index ? 'page' : undefined}
+            >{index + 1}</button>
+          )}
+        </div>
+        <button
+          className="pagination-arrow"
+          onClick={() => setProjectPage(page => Math.min(projectPageCount - 1, page + 1))}
+          disabled={projectPage === projectPageCount - 1}
+          aria-label="Next project page"
+        >→</button>
       </div>
 
       <p className="projects-source">Starting facts: Town of Bedford transportation, public works and electricity pages; Bedford TAC meeting records; Bedford Town Clerk data reported by The Bedford Citizen.</p>
