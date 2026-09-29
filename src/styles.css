@@ -211,3 +211,17 @@ footer{min-height:38px;font-size:9.5px}
 /* Keep corner placement, but return project indexes to the original plain-number treatment. */
 .problem-index{position:absolute;top:18px;right:20px;min-width:0;height:auto;padding:0;border:0;border-radius:0;background:transparent;color:#62766a;display:block;font:800 18px/1 monospace;letter-spacing:-.02em}
 @media(max-width:760px){.problem-index{top:17px;right:18px;height:auto;min-width:0;font-size:16px}}
+
+
+/* Preview uses the exact desktop project-card footprint and hierarchy. */
+.idea-preview-wrap{min-width:0}
+.idea-preview{width:100%;min-height:0!important;height:100%!important;aspect-ratio:auto;padding:16px 20px 17px}
+.idea-preview .problem-card-top{grid-template-columns:1fr}
+.idea-preview .problem-heading{grid-template-columns:58px 1fr;gap:12px;padding-right:34px}
+.idea-preview .road-sign,.idea-preview .idea-mark{width:56px;height:56px}
+.idea-preview .problem-fact{margin-top:10px}
+.idea-preview .problem-question{margin-top:7px;line-height:1.45}
+.idea-preview .problem-index{top:18px;right:20px}
+@media(min-width:1051px){.idea-builder{grid-template-columns:minmax(0,1fr) minmax(0,calc((100vw - 8.4vw - 28px)/3));}.idea-preview-wrap{width:100%}.idea-preview{min-height:330px!important}}
+@media(max-width:1050px){.idea-preview{min-height:330px!important}}
+@media(max-width:760px){.idea-preview{min-height:0!important;height:auto!important}.idea-preview .problem-heading{grid-template-columns:56px 1fr;padding-right:32px}.idea-preview .road-sign,.idea-preview .idea-mark{width:54px;height:54px}}
