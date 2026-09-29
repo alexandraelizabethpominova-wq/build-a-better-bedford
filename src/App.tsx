@@ -232,7 +232,7 @@ function App() {
       </div>
 
       <div className="problem-grid">
-        {visibleProjects.map(problem => <article className={problem.cta ? 'problem-card problem-card-cta' : 'problem-card'} key={problem.number}>
+        {visibleProjects.map(problem => <article className={problem.cta ? 'problem-card problem-card-cta' : problem.isSubmitted ? 'problem-card submitted-project-card' : 'problem-card'} key={problem.number}>
           {!problem.cta && <span className={problem.isSubmitted ? 'problem-index problem-index-new' : 'problem-index'}>{problem.number}</span>}
           <div className="problem-card-top">
             <div className={problem.cta ? 'problem-heading problem-heading-cta' : 'problem-heading'}>
@@ -301,10 +301,10 @@ function App() {
             </form>
             <div className="idea-preview-wrap">
               <p className="preview-label">LIVE PREVIEW</p>
-              <article className="problem-card idea-preview">
+              <article className="problem-card submitted-project-card idea-preview">
                 <span className="problem-index">NEW</span>
                 <div className="problem-card-top"><div className="problem-heading">
-                  {ideaPhotoPreview ? <div className="road-sign submitted-photo"><img src={ideaPhotoPreview} alt="Uploaded preview" /></div> : <div className="idea-mark">?</div>}
+                  {ideaPhotoPreview ? <div className="road-sign submitted-photo"><img src={ideaPhotoPreview} alt="Uploaded preview" /></div> : <div className="road-sign submitted-placeholder"><span>?</span></div>}
                   <h2>{ideaForm.title || 'Your idea title'}</h2>
                 </div></div>
                 <p className="problem-fact">{ideaForm.subtitle || 'Your short starting fact or observation appears here.'}</p>
