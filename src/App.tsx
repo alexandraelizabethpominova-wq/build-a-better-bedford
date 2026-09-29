@@ -92,9 +92,15 @@ function App() {
   const [page, setPage] = useState<Page>('home')
   const [menuOpen, setMenuOpen] = useState(false)
   const [projectPage, setProjectPage] = useState(0)
-  const projectsPerPage = 8
-  const projectPageCount = Math.ceil(projectProblems.length / projectsPerPage)
-  const visibleProjects = projectProblems.slice(projectPage * projectsPerPage, (projectPage + 1) * projectsPerPage)
+  const projectsPerPage = 6
+  const ideaCard = projectProblems.find(problem => problem.cta)!
+  const regularProjects = projectProblems.filter(problem => !problem.cta)
+  const regularProjectsPerPage = projectsPerPage - 1
+  const projectPageCount = Math.max(1, Math.ceil(regularProjects.length / regularProjectsPerPage))
+  const visibleProjects = [
+    ...regularProjects.slice(projectPage * regularProjectsPerPage, (projectPage + 1) * regularProjectsPerPage),
+    ideaCard,
+  ]
 
   const joinClub = () => {
     window.open('https://forms.gle/ejjaRZzo5HMMtkVD7', '_blank', 'noopener,noreferrer')
