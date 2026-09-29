@@ -93,7 +93,7 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const joinClub = () => {
-    window.location.href = 'https://forms.gle/ejjaRZzo5HMMtkVD7'
+    window.open('https://forms.gle/ejjaRZzo5HMMtkVD7', '_blank', 'noopener,noreferrer')
   }
 
   const go = (next: Page) => {
