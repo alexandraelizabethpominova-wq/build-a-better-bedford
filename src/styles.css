@@ -123,3 +123,8 @@ footer{min-height:38px;font-size:9.5px}
 .pagination-arrow:not(:disabled):hover,.pagination-page:not(.active):hover{background:#f1f5f2;border-color:#9daf9f}
 @media(max-width:1050px){.problem-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){.problem-grid{grid-template-columns:1fr}.problem-card{min-height:0}.project-pagination{margin:18px 0}.pagination-arrow{width:44px;height:44px}.pagination-page{width:40px;height:40px}}
+
+
+/* Keep project cards aligned to equal height within each page. */
+.problem-grid{align-items:stretch}
+.problem-card{height:100%}
