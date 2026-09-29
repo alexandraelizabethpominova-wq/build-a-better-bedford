@@ -113,6 +113,7 @@ function App() {
   const projectsPerPage = 6
   const ideaCard = projectProblems.find(problem => problem.cta)!
   const submittedProjectCards = submittedIdeas.map((idea) => ({
+    id: idea.id,
     number: 'NEW',
     isSubmitted: true,
     title: idea.title,
@@ -129,7 +130,8 @@ function App() {
     projectPage * regularProjectsPerPage,
     (projectPage + 1) * regularProjectsPerPage,
   )
-  const visibleProjects = [...pageProjects, ideaCard]
+  // The CTA occupies one of the six grid slots on every page.
+  const visibleProjects = [...pageProjects, ideaCard].slice(0, projectsPerPage)
 
   useEffect(() => {
     supabase.from('project_ideas').select('id,title,subtitle,description,submitter_name,photo_url').order('created_at', { ascending: true })
@@ -248,7 +250,7 @@ function App() {
       </div>
 
       <div className="problem-grid">
-        {visibleProjects.map(problem => <article className={problem.cta ? 'problem-card problem-card-cta' : problem.isSubmitted ? 'problem-card submitted-project-card' : 'problem-card'} key={problem.number}>
+        {visibleProjects.map(problem => <article className={problem.cta ? 'problem-card problem-card-cta' : problem.isSubmitted ? 'problem-card submitted-project-card' : 'problem-card'} key={problem.cta ? 'idea-cta' : problem.isSubmitted ? `submitted-${problem.id}` : `project-${problem.number}`}>
           {!problem.cta && <span className={problem.isSubmitted ? 'problem-index problem-index-new' : 'problem-index'}>{problem.number}</span>}
           <div className="problem-card-top">
             <div className={problem.cta ? 'problem-heading problem-heading-cta' : 'problem-heading'}>
