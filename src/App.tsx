@@ -82,7 +82,7 @@ const projectProblems = [
     question: 'When the same place floods again and again, what is happening below the surface? We can investigate drainage, grading, pavement, soil, and green infrastructure—and explore how design could help water go somewhere better.'
   },
   {
-    number: '09',
+    number: '',
     cta: true,
     title: 'YOUR IDEA HERE',
     fact: 'What Bedford problem do you notice that everyone else seems to walk past?',
@@ -233,7 +233,7 @@ function App() {
       <div className="problem-grid">
         {visibleProjects.map(problem => <article className={problem.cta ? 'problem-card problem-card-cta' : 'problem-card'} key={problem.number}>
           <div className="problem-card-top">
-            <span>{problem.number}</span>
+            {!problem.cta && <span>{problem.number}</span>}
             <div className={problem.cta ? 'problem-heading problem-heading-cta' : 'problem-heading'}>
               {problem.cta
                 ? <div className="idea-mark">?</div>
