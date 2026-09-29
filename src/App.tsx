@@ -92,6 +92,10 @@ function App() {
   const [page, setPage] = useState<Page>('home')
   const [menuOpen, setMenuOpen] = useState(false)
 
+  const joinClub = () => {
+    window.location.href = 'https://forms.gle/ejjaRZzo5HMMtkVD7'
+  }
+
   const go = (next: Page) => {
     setPage(next)
     setMenuOpen(false)
@@ -112,7 +116,7 @@ function App() {
         {(['home','about','what-we-do','projects','newsletter'] as Page[]).map(item =>
           <button key={item} className={page === item ? 'nav-button active-link' : 'nav-button'} onClick={() => go(item)}>{labels[item]}</button>
         )}
-        <button className={page === 'join' ? 'join-link active-join' : 'join-link'} onClick={() => go('join')}>Join the Club</button>
+        <button className="join-link" onClick={joinClub}>Join the Club</button>
       </nav>
     </header>
 
@@ -134,7 +138,7 @@ function App() {
         </div>
 
         <div className="actions">
-          <button className="primary" onClick={() => go('join')}>Join the club <span>→</span></button>
+          <button className="primary" onClick={joinClub}>Join the club <span>→</span></button>
           <button className="quiet-link" onClick={() => go('about')}>Learn more <span>→</span></button>
         </div>
         <p className="about-line"><strong>No experience required.</strong> We learn together through real examples, design tools, models, and conversations with professionals.</p>
