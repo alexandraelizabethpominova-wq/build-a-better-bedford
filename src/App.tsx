@@ -92,7 +92,7 @@ function App() {
   const [page, setPage] = useState<Page>('home')
   const [menuOpen, setMenuOpen] = useState(false)
   const [projectPage, setProjectPage] = useState(0)
-  const projectsPerPage = 3
+  const projectsPerPage = 8
   const projectPageCount = Math.ceil(projectProblems.length / projectsPerPage)
   const visibleProjects = projectProblems.slice(projectPage * projectsPerPage, (projectPage + 1) * projectsPerPage)
 
@@ -177,7 +177,7 @@ function App() {
         </article>)}
       </div>
 
-      <div className="project-pagination" aria-label="Project pages">
+      {projectPageCount > 1 && <div className="project-pagination" aria-label="Project pages">
         <button
           className="pagination-arrow"
           onClick={() => setProjectPage(page => Math.max(0, page - 1))}
@@ -201,7 +201,7 @@ function App() {
           disabled={projectPage === projectPageCount - 1}
           aria-label="Next project page"
         >→</button>
-      </div>
+      </div>}
 
       <p className="projects-source">Starting facts: Town of Bedford transportation, public works and electricity pages; Bedford TAC meeting records; Bedford Town Clerk data reported by The Bedford Citizen.</p>
     </section>}
