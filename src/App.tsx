@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { supabase } from './supabase'
 import Newsletter from './Newsletter'
 import heroLogo from './assets/logo.png'
 import crosswalkIcon from './assets/crosswalk.png'
@@ -12,6 +13,9 @@ import trailsIcon from './assets/trails.png'
 import './newsletter.css'
 
 type Page = 'home' | 'about' | 'what-we-do' | 'projects' | 'newsletter' | 'join'
+type SubmittedIdea = { id:number; title:string; subtitle:string; description:string; submitter_name:string|null; photo_url:string|null }
+type IdeaForm = { title:string; subtitle:string; description:string; submitterName:string }
+const emptyIdea: IdeaForm = { title:'', subtitle:'', description:'', submitterName:'' }
 
 const focusAreas = [
   ['01', 'Local infrastructure', 'Observe Bedford streets, crossings, trails, drainage, and public spaces.'],
@@ -99,15 +103,68 @@ function App() {
   const [page, setPage] = useState<Page>('home')
   const [menuOpen, setMenuOpen] = useState(false)
   const [projectPage, setProjectPage] = useState(0)
+  const [ideaOpen, setIdeaOpen] = useState(false)
+  const [ideaForm, setIdeaForm] = useState<IdeaForm>(emptyIdea)
+  const [ideaPhoto, setIdeaPhoto] = useState<File | null>(null)
+  const [ideaPhotoPreview, setIdeaPhotoPreview] = useState('')
+  const [submittedIdeas, setSubmittedIdeas] = useState<SubmittedIdea[]>([])
+  const [submittingIdea, setSubmittingIdea] = useState(false)
+  const [ideaMessage, setIdeaMessage] = useState('')
   const projectsPerPage = 6
   const ideaCard = projectProblems.find(problem => problem.cta)!
-  const regularProjects = projectProblems.filter(problem => !problem.cta)
+  const submittedProjectCards = submittedIdeas.map((idea, index) => ({
+    number: String(projectProblems.length + index).padStart(2, '0'),
+    title: idea.title,
+    fact: idea.subtitle,
+    question: idea.description,
+    photoUrl: idea.photo_url,
+    submitterName: idea.submitter_name,
+  }))
+  const regularProjects = [...projectProblems.filter(problem => !problem.cta), ...submittedProjectCards]
   const regularProjectsPerPage = projectsPerPage - 1
   const projectPageCount = Math.max(1, Math.ceil(regularProjects.length / regularProjectsPerPage))
   const visibleProjects = [
     ...regularProjects.slice(projectPage * regularProjectsPerPage, (projectPage + 1) * regularProjectsPerPage),
     ideaCard,
   ]
+
+  useEffect(() => {
+    supabase.from('project_ideas').select('id,title,subtitle,description,submitter_name,photo_url').order('created_at', { ascending: true })
+      .then(({ data }) => { if (data) setSubmittedIdeas(data as SubmittedIdea[]) })
+  }, [])
+
+  const updateIdea = (field: keyof IdeaForm, value: string) => setIdeaForm(form => ({ ...form, [field]: value }))
+
+  const chooseIdeaPhoto = (file: File | null) => {
+    if (ideaPhotoPreview) URL.revokeObjectURL(ideaPhotoPreview)
+    setIdeaPhoto(file)
+    setIdeaPhotoPreview(file ? URL.createObjectURL(file) : '')
+  }
+
+  const submitIdea = async (event: React.FormEvent) => {
+    event.preventDefault()
+    if (!ideaForm.title.trim() || !ideaForm.subtitle.trim() || !ideaForm.description.trim()) return
+    setSubmittingIdea(true); setIdeaMessage('')
+    let photoUrl: string | null = null
+    if (ideaPhoto) {
+      const safeName = ideaPhoto.name.replace(/[^a-zA-Z0-9._-]/g, '-')
+      const path = `${crypto.randomUUID()}-${safeName}`
+      const { error: uploadError } = await supabase.storage.from('project-idea-photos').upload(path, ideaPhoto)
+      if (uploadError) { setIdeaMessage('Photo upload failed. Please try again.'); setSubmittingIdea(false); return }
+      photoUrl = supabase.storage.from('project-idea-photos').getPublicUrl(path).data.publicUrl
+    }
+    const { data, error } = await supabase.from('project_ideas').insert({
+      title: ideaForm.title.trim(), subtitle: ideaForm.subtitle.trim(), description: ideaForm.description.trim(),
+      submitter_name: ideaForm.submitterName.trim() || null, photo_url: photoUrl,
+    }).select('id,title,subtitle,description,submitter_name,photo_url').single()
+    if (error) setIdeaMessage('Could not submit your idea. Please try again.')
+    else {
+      setSubmittedIdeas(items => [...items, data as SubmittedIdea])
+      setIdeaForm(emptyIdea); chooseIdeaPhoto(null); setIdeaMessage('Idea added!')
+      setTimeout(() => { setIdeaOpen(false); setIdeaMessage('') }, 700)
+    }
+    setSubmittingIdea(false)
+  }
 
   const joinClub = () => {
     window.open('https://forms.gle/ejjaRZzo5HMMtkVD7', '_blank', 'noopener,noreferrer')
@@ -180,13 +237,16 @@ function App() {
             <div className={problem.cta ? 'problem-heading problem-heading-cta' : 'problem-heading'}>
               {problem.cta
                 ? <div className="idea-mark">?</div>
-                : <div className="road-sign"><img src={problem.icon} alt="" aria-hidden="true" /></div>}
+                : problem.photoUrl
+                  ? <div className="road-sign submitted-photo"><img src={problem.photoUrl} alt="" /></div>
+                  : <div className="road-sign"><img src={problem.icon} alt="" aria-hidden="true" /></div>}
               <h2>{problem.title}</h2>
             </div>
           </div>
           <p className="problem-fact">{problem.fact}</p>
           <p className="problem-question">{problem.question}</p>
-          {problem.cta && <button className="idea-cta" onClick={() => go('join')}>Bring your idea <span>→</span></button>}
+          {problem.submitterName && <p className="idea-byline">Idea by {problem.submitterName}</p>}
+          {problem.cta && <button className="idea-cta" onClick={() => setIdeaOpen(true)}>Bring your idea <span>→</span></button>}
         </article>)}
       </div>
 
@@ -217,6 +277,35 @@ function App() {
       </div>
 
       <p className="projects-source">Starting facts: Town of Bedford transportation, public works and electricity pages; Bedford TAC meeting records; Bedford Town Clerk data reported by The Bedford Citizen.</p>
+
+      {ideaOpen && <div className="idea-modal-backdrop" onMouseDown={() => setIdeaOpen(false)}>
+        <div className="idea-modal" role="dialog" aria-modal="true" aria-labelledby="idea-form-title" onMouseDown={e => e.stopPropagation()}>
+          <div className="idea-modal-head"><div><p className="eyebrow">ADD TO THE PROBLEM LAB</p><h2 id="idea-form-title">Bring your idea.</h2></div><button className="idea-close" onClick={() => setIdeaOpen(false)} aria-label="Close">×</button></div>
+          <div className="idea-builder">
+            <form className="idea-form" onSubmit={submitIdea}>
+              <label>Title<input required maxLength={120} value={ideaForm.title} onChange={e => updateIdea('title', e.target.value)} placeholder="Why does this keep happening?" /></label>
+              <label>Subtitle / starting fact<input required maxLength={220} value={ideaForm.subtitle} onChange={e => updateIdea('subtitle', e.target.value)} placeholder="A short fact or observation" /></label>
+              <label>Description<textarea required maxLength={2000} rows={5} value={ideaForm.description} onChange={e => updateIdea('description', e.target.value)} placeholder="What should we investigate?" /></label>
+              <label>Your name <span>(optional)</span><input maxLength={100} value={ideaForm.submitterName} onChange={e => updateIdea('submitterName', e.target.value)} placeholder="Name" /></label>
+              <label className="photo-upload">Photo <span>(optional · JPG, PNG or WebP · max 5 MB)</span><input type="file" accept="image/jpeg,image/png,image/webp" onChange={e => chooseIdeaPhoto(e.target.files?.[0] || null)} /></label>
+              <button className="idea-submit" disabled={submittingIdea}>{submittingIdea ? 'Adding idea…' : 'Add idea to the board →'}</button>
+              {ideaMessage && <p className="idea-message" role="status">{ideaMessage}</p>}
+            </form>
+            <div className="idea-preview-wrap">
+              <p className="preview-label">LIVE PREVIEW</p>
+              <article className="problem-card idea-preview">
+                <div className="problem-card-top"><span>NEW</span><div className="problem-heading">
+                  {ideaPhotoPreview ? <div className="road-sign submitted-photo"><img src={ideaPhotoPreview} alt="Uploaded preview" /></div> : <div className="idea-mark">?</div>}
+                  <h2>{ideaForm.title || 'Your idea title'}</h2>
+                </div></div>
+                <p className="problem-fact">{ideaForm.subtitle || 'Your short starting fact or observation appears here.'}</p>
+                <p className="problem-question">{ideaForm.description || 'Describe the Bedford problem, question, or place you think is worth investigating.'}</p>
+                {ideaForm.submitterName && <p className="idea-byline">Idea by {ideaForm.submitterName}</p>}
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>}
     </section>}
 
     {page !== 'home' && page !== 'newsletter' && page !== 'projects' && <section className="coming-page">
