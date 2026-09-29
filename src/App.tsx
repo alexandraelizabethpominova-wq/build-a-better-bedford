@@ -122,12 +122,14 @@ function App() {
     submitterName: idea.submitter_name,
   }))
   const regularProjects = [...projectProblems.filter(problem => !problem.cta), ...submittedProjectCards]
+  // Six cards total per page: five projects + the always-visible idea CTA.
   const regularProjectsPerPage = projectsPerPage - 1
   const projectPageCount = Math.max(1, Math.ceil(regularProjects.length / regularProjectsPerPage))
-  const visibleProjects = [
-    ...regularProjects.slice(projectPage * regularProjectsPerPage, (projectPage + 1) * regularProjectsPerPage),
-    ideaCard,
-  ]
+  const pageProjects = regularProjects.slice(
+    projectPage * regularProjectsPerPage,
+    (projectPage + 1) * regularProjectsPerPage,
+  )
+  const visibleProjects = [...pageProjects, ideaCard]
 
   useEffect(() => {
     supabase.from('project_ideas').select('id,title,subtitle,description,submitter_name,photo_url').order('created_at', { ascending: true })
