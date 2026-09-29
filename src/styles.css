@@ -306,3 +306,69 @@ footer{min-height:38px;font-size:9.5px}
 .idea-edit:hover,.idea-edit:focus-visible{opacity:1;background:#eef4f0;color:#174f38}
 .submitted-project-card .idea-byline{padding-right:40px}
 @media(max-width:760px){.idea-edit{top:auto;right:14px;bottom:12px}}
+
+
+/* Responsive desktop viewport fit: keep Home and one Projects page inside the visible screen. */
+@media(min-width:1051px){
+  .site-shell{height:100svh;min-height:0;overflow:hidden;grid-template-rows:auto minmax(0,1fr) auto}
+  .topbar{height:clamp(76px,10.5vh,108px)}
+  footer{min-height:clamp(28px,3.6vh,36px)}
+
+  .viewport{min-height:0;height:100%;padding:0;gap:clamp(28px,4vw,64px)}
+  .hero-logo-image{width:min(100%,620px);max-height:min(66vh,650px)}
+  .home-content{max-height:100%;display:flex;flex-direction:column;justify-content:center}
+  .home-content h1{font-size:clamp(50px,min(5vw,8vh),82px)}
+  .lede{margin:clamp(10px,1.8vh,18px) 0 clamp(12px,2vh,20px)}
+  .focus-row{padding:clamp(9px,1.45vh,15px) 0}
+  .actions{margin-top:clamp(10px,1.8vh,18px)}
+  .about-line{margin-top:clamp(7px,1.1vh,12px)}
+
+  .site-shell:has(.projects-page){height:100svh;min-height:0;overflow:hidden;grid-template-rows:auto minmax(0,1fr) auto}
+  .projects-page{min-height:0;height:100%;display:grid;grid-template-rows:auto minmax(0,1fr) auto auto;gap:clamp(6px,1vh,10px);padding:0 0 clamp(4px,.8vh,8px);overflow:hidden}
+  .projects-heading{min-height:0}
+  .projects-heading h1{font-size:clamp(40px,min(4vw,6.2vh),62px)}
+  .projects-heading>p{font-size:clamp(12px,1.45vh,15px);line-height:1.45}
+  .problem-grid{min-height:0;height:100%;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(0,1fr);gap:clamp(10px,1.35vh,14px)}
+  .problem-card,.submitted-project-card,.problem-card-cta{height:100%!important;min-height:0!important;max-height:none!important;padding:clamp(12px,1.6vh,16px) clamp(16px,1.2vw,20px)}
+  .problem-card h2{font-size:clamp(17px,1.95vh,21px)}
+  .problem-fact{font-size:clamp(11px,1.35vh,14px);line-height:1.4;margin-top:clamp(7px,1vh,10px)}
+  .problem-question{font-size:clamp(10.5px,1.28vh,13.5px);line-height:1.4;margin-top:clamp(5px,.8vh,7px)}
+  .road-sign,.idea-mark{width:clamp(48px,5.8vh,56px);height:clamp(48px,5.8vh,56px)}
+  .problem-heading{grid-template-columns:clamp(50px,6vh,58px) minmax(0,1fr);gap:10px}
+  .project-pagination{min-height:32px}
+  .pagination-arrow{width:34px;height:34px}
+  .pagination-page{width:32px;height:32px}
+  .projects-source{font-size:9px;line-height:1.25;margin:0}
+}
+
+/* Short laptop screens: compress spacing before ever forcing vertical scrolling. */
+@media(min-width:1051px) and (max-height:820px){
+  .topbar{height:68px}
+  .brand-text{font-size:18px}
+  .nav-button{font-size:13px}
+  .join-link{padding:13px 19px;font-size:13px}
+  .eyebrow{margin-bottom:8px;font-size:10px}
+  .home-content h1{font-size:clamp(44px,7.2vh,60px)}
+  .lede{font-size:14px;line-height:1.45;margin:8px 0 10px}
+  .focus-row{padding:7px 0}
+  .focus-row h2{font-size:17px}
+  .focus-row p{font-size:11px}
+  .primary{min-height:42px;font-size:12px}
+  .quiet-link{font-size:12px}
+  .about-line{font-size:9.5px}
+  footer{min-height:26px;font-size:8.5px}
+
+  .projects-heading h1{font-size:clamp(36px,5.8vh,48px)}
+  .projects-heading>p{font-size:12px}
+  .problem-card,.submitted-project-card,.problem-card-cta{padding:10px 14px}
+  .problem-card h2{font-size:16px}
+  .problem-fact{font-size:10.5px;line-height:1.34}
+  .problem-question{font-size:10px;line-height:1.33}
+  .road-sign,.idea-mark{width:44px;height:44px}
+  .problem-heading{grid-template-columns:46px minmax(0,1fr)}
+  .problem-index{top:12px;right:14px;font-size:15px}
+  .problem-index-new{font-size:13px!important}
+  .project-pagination{min-height:28px}
+  .pagination-arrow{width:30px;height:30px}
+  .pagination-page{width:29px;height:29px}
+}
