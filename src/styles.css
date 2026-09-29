@@ -110,8 +110,8 @@ footer{min-height:38px;font-size:9.5px}
 }
 
 
-/* Projects: up to 8 cards per page, with equal-height cards. */
-.problem-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;grid-auto-rows:1fr}
+/* Projects: six wider cards per page. The idea CTA is always the final visible card. */
+.problem-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;grid-auto-rows:1fr}
 .problem-card{min-height:330px;height:100%}
 .project-pagination{display:flex;align-items:center;justify-content:center;gap:14px;margin:2px 0}
 .pagination-pages{display:flex;align-items:center;gap:8px}
@@ -121,7 +121,6 @@ footer{min-height:38px;font-size:9.5px}
 .pagination-page.active{background:#123f2c;border-color:#123f2c;color:#fff}
 .pagination-arrow:disabled{opacity:.3;cursor:default}
 .pagination-arrow:not(:disabled):hover,.pagination-page:not(.active):hover{background:#f1f5f2;border-color:#9daf9f}
-@media(max-width:1250px){.problem-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:1050px){.problem-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){.problem-grid{grid-template-columns:1fr;grid-auto-rows:auto}.problem-card{min-height:0;height:auto}.project-pagination{margin:18px 0}.pagination-arrow{width:44px;height:44px}.pagination-page{width:40px;height:40px}}
 
