@@ -199,3 +199,10 @@ footer{min-height:38px;font-size:9.5px}
 /* Refine project sequence number scale after visual review. */
 .problem-card-top>span{font-size:18px;line-height:1;font-weight:800;padding-top:4px;letter-spacing:-.02em}
 @media(max-width:760px){.problem-card-top>span{font-size:16px}}
+
+
+/* Separate project index from the icon/title hierarchy. */
+.problem-card-top{grid-template-columns:1fr}
+.problem-index{position:absolute;top:14px;right:16px;min-width:30px;height:24px;padding:0 7px;border:1px solid #d6ded8;border-radius:999px;background:#f7f9f7;color:#62766a;display:grid;place-items:center;font:800 11px/1 Inter,sans-serif;letter-spacing:.04em}
+.problem-card:not(.problem-card-cta) .problem-heading{padding-right:34px}
+@media(max-width:760px){.problem-index{top:13px;right:14px;height:23px;min-width:29px;font-size:10px}.problem-card:not(.problem-card-cta) .problem-heading{padding-right:32px}}
