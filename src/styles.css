@@ -187,3 +187,10 @@ footer{min-height:38px;font-size:9.5px}
 /* Project sequence numbers: intentionally prominent for fast scanning. */
 .problem-card-top>span{font-size:26px;line-height:1;font-weight:800;padding-top:3px;letter-spacing:-.04em}
 @media(max-width:760px){.problem-card-top>span{font-size:22px}}
+
+
+/* CTA has no sequence-number column, so let its heading use the full card width. */
+.problem-card-cta .problem-card-top{grid-template-columns:1fr}
+.problem-card-cta .problem-heading-cta{grid-template-columns:58px minmax(0,1fr);gap:14px}
+.problem-card-cta h2{white-space:nowrap}
+@media(max-width:760px){.problem-card-cta h2{white-space:normal}}
