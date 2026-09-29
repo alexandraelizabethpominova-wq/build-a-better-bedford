@@ -287,7 +287,14 @@ function App() {
               <label>Subtitle / starting fact<input required maxLength={220} value={ideaForm.subtitle} onChange={e => updateIdea('subtitle', e.target.value)} placeholder="A short fact or observation" /></label>
               <label>Description<textarea required maxLength={2000} rows={5} value={ideaForm.description} onChange={e => updateIdea('description', e.target.value)} placeholder="What should we investigate?" /></label>
               <label>Your name <span>(optional)</span><input maxLength={100} value={ideaForm.submitterName} onChange={e => updateIdea('submitterName', e.target.value)} placeholder="Name" /></label>
-              <label className="photo-upload">Photo <span>(optional · JPG, PNG or WebP · max 5 MB)</span><input type="file" accept="image/jpeg,image/png,image/webp" onChange={e => chooseIdeaPhoto(e.target.files?.[0] || null)} /></label>
+              <div className="photo-field"><span className="photo-label">Photo <small>(optional · JPG, PNG or WebP · max 5 MB)</small></span>
+                <label className={ideaPhoto ? 'photo-dropzone has-file' : 'photo-dropzone'}>
+                  <input type="file" accept="image/jpeg,image/png,image/webp" onChange={e => chooseIdeaPhoto(e.target.files?.[0] || null)} />
+                  <span className="upload-icon" aria-hidden="true">↑</span>
+                  <span className="upload-copy"><strong>{ideaPhoto ? 'Change photo' : 'Upload a photo'}</strong><small>{ideaPhoto ? ideaPhoto.name : 'Click to browse from your device'}</small></span>
+                </label>
+                {ideaPhoto && <button type="button" className="remove-photo" onClick={() => chooseIdeaPhoto(null)}>Remove photo</button>}
+              </div>
               <button className="idea-submit" disabled={submittingIdea}>{submittingIdea ? 'Adding idea…' : 'Add idea to the board →'}</button>
               {ideaMessage && <p className="idea-message" role="status">{ideaMessage}</p>}
             </form>
