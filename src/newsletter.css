@@ -49,3 +49,41 @@
 
 @media(max-width:760px){.newsletter-clean{height:auto;min-height:calc(100svh - 112px);display:block;padding:24px 0 58px}.newsletter-intro h1{font-size:clamp(42px,12.5vw,60px)}.newsletter-deck{margin-top:15px}.newsletter-quote{margin:18px 0 30px}.newsletter-note{padding:12px 0}.newsletter-disclaimer{margin-bottom:8px}.newsletter-drawer-toggle{height:46px}.newsletter-expand-panel section{padding:22px 0}.expand-grid,.solution-layout,.inspiration-grid{grid-template-columns:1fr;gap:18px}.solution-layout img{max-height:none}}
 @media(max-height:720px) and (min-width:761px){.newsletter-clean{height:calc(100svh - 102px);padding:1vh 0 2vh}.newsletter-intro h1{font-size:clamp(42px,4.4vw,64px)}.newsletter-deck{margin-top:12px}.newsletter-quote{margin-top:16px}.newsletter-notes-head{height:32px}.newsletter-note{padding:10px 0}.newsletter-disclaimer{margin-top:9px;padding:10px 12px}.newsletter-drawer-toggle{height:38px}}
+
+
+/* Newsletter readability and full-width solution visual. */
+.newsletter-label{font-size:12px}
+.newsletter-deck{font-size:17px;line-height:1.6}
+.newsletter-quote{font-size:15px;line-height:1.6}
+.newsletter-notes-head{font-size:10px}
+.newsletter-note>span{font-size:11px}
+.newsletter-note h2{font-size:21px}
+.newsletter-note p{font-size:14px;line-height:1.55}
+.newsletter-disclaimer strong{font-size:13px}
+.newsletter-disclaimer p{font-size:12px;line-height:1.55}
+.expand-kicker{font-size:10px}
+.expand-grid p,.solution-layout p{font-size:15px;line-height:1.65}
+.design-principle span{font-size:9px}
+.design-principle strong{font-size:19px}
+.design-principle p{font-size:13px}
+.source-links a,.inspiration-top a{font-size:12px}
+.bedford-context h3{font-size:17px}
+.bedford-context ul{font-size:14px;line-height:1.8}
+.solution-note{font-size:12px!important}
+.inspiration-top span{font-size:9px}
+.inspiration-card h3{font-size:17px}
+.inspiration-card p{font-size:13px;line-height:1.6}
+
+/* Let the crosswalk concept use the full content width so details are readable. */
+.solution-layout{display:block}
+.solution-layout>div{max-width:820px}
+.solution-layout figure{width:100%;margin:24px 0 0}
+.solution-layout img{width:100%;max-height:none;height:auto;object-fit:contain}
+
+@media(max-width:760px){
+  .newsletter-deck{font-size:16px}
+  .newsletter-quote{font-size:14px}
+  .newsletter-note h2{font-size:20px}
+  .newsletter-note p{font-size:14px}
+  .expand-grid p,.solution-layout p{font-size:14px}
+}
