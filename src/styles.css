@@ -110,9 +110,9 @@ footer{min-height:38px;font-size:9.5px}
 }
 
 
-/* Projects: wider cards with compact pagination. */
-.problem-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.problem-card{min-height:330px}
+/* Projects: six wider cards per page. The idea CTA is always the final visible card. */
+.problem-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;grid-auto-rows:1fr}
+.problem-card{min-height:330px;height:100%}
 .project-pagination{display:flex;align-items:center;justify-content:center;gap:14px;margin:2px 0}
 .pagination-pages{display:flex;align-items:center;gap:8px}
 .pagination-arrow,.pagination-page{border:1px solid #cfd8d1;background:#fff;color:#315844;cursor:pointer;font-weight:800;display:grid;place-items:center;transition:background .15s ease,border-color .15s ease}
@@ -122,9 +122,174 @@ footer{min-height:38px;font-size:9.5px}
 .pagination-arrow:disabled{opacity:.3;cursor:default}
 .pagination-arrow:not(:disabled):hover,.pagination-page:not(.active):hover{background:#f1f5f2;border-color:#9daf9f}
 @media(max-width:1050px){.problem-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:760px){.problem-grid{grid-template-columns:1fr}.problem-card{min-height:0}.project-pagination{margin:18px 0}.pagination-arrow{width:44px;height:44px}.pagination-page{width:40px;height:40px}}
+@media(max-width:760px){.problem-grid{grid-template-columns:1fr;grid-auto-rows:auto}.problem-card{min-height:0;height:auto}.project-pagination{margin:18px 0}.pagination-arrow{width:44px;height:44px}.pagination-page{width:40px;height:40px}}
 
 
 /* Keep project cards aligned to equal height within each page. */
 .problem-grid{align-items:stretch}
 .problem-card{height:100%}
+
+
+/* Make project sequence numbers easier to scan. */
+.problem-card-top>span{font-size:13px;line-height:1;font-weight:800;padding-top:5px;color:#62766a}
+@media(max-width:760px){.problem-card-top>span{font-size:12px}}
+
+
+/* Give the Projects grid breathing room above the footer. */
+.site-shell:has(.projects-page){height:auto;min-height:100svh;overflow:auto;grid-template-rows:auto 1fr auto}
+.projects-page{padding-bottom:34px}
+.projects-source{margin-top:6px;margin-bottom:10px}
+@media(max-width:760px){.projects-page{padding-bottom:28px}.projects-source{margin-bottom:8px}}
+
+
+/* Keep both project rows and pagination visible on a typical desktop viewport. */
+@media(min-width:1051px){
+  .projects-page{gap:12px;padding-top:0;padding-bottom:12px}
+  .projects-heading h1{font-size:clamp(44px,4vw,64px)}
+  .projects-heading .eyebrow{margin-bottom:8px}
+  .problem-grid{gap:14px}
+  .problem-card{min-height:0;padding:16px 20px 17px}
+  .problem-fact{margin-top:10px}
+  .problem-question{margin-top:7px;line-height:1.45}
+  .road-sign,.idea-mark{width:56px;height:56px}
+  .problem-heading{grid-template-columns:58px 1fr;gap:12px}
+  .project-pagination{margin:0}
+  .pagination-arrow{width:38px;height:38px}
+  .pagination-page{width:35px;height:35px}
+  .projects-source{margin-top:0;margin-bottom:4px}
+}
+
+
+/* Community idea submission + live card preview. */
+.idea-modal-backdrop{position:fixed;z-index:100;inset:0;background:rgba(15,32,23,.48);display:grid;place-items:center;padding:28px;overflow:auto}
+.idea-modal{width:min(1120px,96vw);max-height:92vh;overflow:auto;background:#fff;border-radius:18px;padding:28px 30px 30px;box-shadow:0 24px 80px rgba(12,35,24,.22)}
+.idea-modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:22px}
+.idea-modal-head h2{margin:0;font:500 44px/1 Georgia,"Times New Roman",serif;color:#15241b;letter-spacing:-.035em}
+.idea-close{border:1px solid #d8dfda;background:#fff;color:#315844;border-radius:10px;width:40px;height:40px;font-size:25px;line-height:1;cursor:pointer}
+.idea-builder{display:grid;grid-template-columns:minmax(0,1fr) minmax(340px,.85fr);gap:34px;align-items:start}
+.idea-form{display:grid;gap:15px}
+.idea-form label{display:grid;gap:7px;color:#31483b;font-size:12px;font-weight:800}
+.idea-form label span,.photo-upload span{font-weight:500;color:#7a877f}
+.idea-form input,.idea-form textarea{width:100%;border:1px solid #cfd8d1;border-radius:9px;padding:11px 12px;background:#fff;color:#17211b;font:500 14px/1.4 Inter,sans-serif;outline:none}
+.idea-form textarea{resize:vertical;min-height:112px}
+.idea-form input:focus,.idea-form textarea:focus{border-color:#2f684b;box-shadow:0 0 0 3px rgba(47,104,75,.09)}
+.photo-upload input{padding:9px}
+.idea-submit{justify-self:start;border:0;border-radius:9px;background:#123f2c;color:#fff;padding:13px 18px;font-size:13px;font-weight:800;cursor:pointer}
+.idea-submit:disabled{opacity:.6;cursor:wait}
+.idea-message{margin:0;color:#2f684b;font-size:12px;font-weight:700}
+.preview-label{margin:0 0 9px;color:#708077;font-size:10px;font-weight:800;letter-spacing:.14em}
+.idea-preview{min-height:330px!important}
+.idea-byline{margin:auto 0 0;padding-top:12px;color:#62766a;font-size:11px;font-weight:750}
+.submitted-photo img{object-fit:cover!important}
+@media(max-width:760px){.idea-modal-backdrop{padding:12px}.idea-modal{padding:20px 18px;max-height:95vh}.idea-modal-head h2{font-size:34px}.idea-builder{grid-template-columns:1fr}.idea-preview-wrap{order:-1}.idea-preview{min-height:0!important}.idea-submit{width:100%}}
+
+
+/* Project sequence numbers: intentionally prominent for fast scanning. */
+.problem-card-top>span{font-size:26px;line-height:1;font-weight:800;padding-top:3px;letter-spacing:-.04em}
+@media(max-width:760px){.problem-card-top>span{font-size:22px}}
+
+
+/* CTA has no sequence-number column, so let its heading use the full card width. */
+.problem-card-cta .problem-card-top{grid-template-columns:1fr}
+.problem-card-cta .problem-heading-cta{grid-template-columns:58px minmax(0,1fr);gap:14px}
+.problem-card-cta h2{white-space:nowrap}
+@media(max-width:760px){.problem-card-cta h2{white-space:normal}}
+
+
+/* Refine project sequence number scale after visual review. */
+.problem-card-top>span{font-size:18px;line-height:1;font-weight:800;padding-top:4px;letter-spacing:-.02em}
+@media(max-width:760px){.problem-card-top>span{font-size:16px}}
+
+
+/* Separate project index from the icon/title hierarchy. */
+.problem-card-top{grid-template-columns:1fr}
+.problem-index{position:absolute;top:14px;right:16px;min-width:30px;height:24px;padding:0 7px;border:1px solid #d6ded8;border-radius:999px;background:#f7f9f7;color:#62766a;display:grid;place-items:center;font:800 11px/1 Inter,sans-serif;letter-spacing:.04em}
+.problem-card:not(.problem-card-cta) .problem-heading{padding-right:34px}
+@media(max-width:760px){.problem-index{top:13px;right:14px;height:23px;min-width:29px;font-size:10px}.problem-card:not(.problem-card-cta) .problem-heading{padding-right:32px}}
+
+
+/* Keep corner placement, but return project indexes to the original plain-number treatment. */
+.problem-index{position:absolute;top:18px;right:20px;min-width:0;height:auto;padding:0;border:0;border-radius:0;background:transparent;color:#62766a;display:block;font:800 18px/1 monospace;letter-spacing:-.02em}
+@media(max-width:760px){.problem-index{top:17px;right:18px;height:auto;min-width:0;font-size:16px}}
+
+
+/* Preview uses the exact desktop project-card footprint and hierarchy. */
+.idea-preview-wrap{min-width:0}
+.idea-preview{width:100%;min-height:0!important;height:100%!important;aspect-ratio:auto;padding:16px 20px 17px}
+.idea-preview .problem-card-top{grid-template-columns:1fr}
+.idea-preview .problem-heading{grid-template-columns:58px 1fr;gap:12px;padding-right:34px}
+.idea-preview .road-sign,.idea-preview .idea-mark{width:56px;height:56px}
+.idea-preview .problem-fact{margin-top:10px}
+.idea-preview .problem-question{margin-top:7px;line-height:1.45}
+.idea-preview .problem-index{top:18px;right:20px}
+@media(min-width:1051px){.idea-builder{grid-template-columns:minmax(0,1fr) minmax(0,calc((100vw - 8.4vw - 28px)/3));}.idea-preview-wrap{width:100%}.idea-preview{min-height:330px!important}}
+@media(max-width:1050px){.idea-preview{min-height:330px!important}}
+@media(max-width:760px){.idea-preview{min-height:0!important;height:auto!important}.idea-preview .problem-heading{grid-template-columns:56px 1fr;padding-right:32px}.idea-preview .road-sign,.idea-preview .idea-mark{width:54px;height:54px}}
+
+
+/* Modern custom image picker; native input remains accessible but visually hidden. */
+.photo-field{display:grid;gap:7px}.photo-label{color:#31483b;font-size:12px;font-weight:800}.photo-label small{font-weight:500;color:#7a877f}.photo-dropzone{min-height:78px;border:1.5px dashed #aabbb0;border-radius:11px;background:#f7faf8;display:flex!important;grid-template-columns:none!important;flex-direction:row;align-items:center;gap:13px;padding:13px 15px!important;cursor:pointer;transition:border-color .15s ease,background .15s ease}.photo-dropzone:hover{border-color:#2f684b;background:#f1f6f2}.photo-dropzone input{position:absolute!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none}.upload-icon{width:38px;height:38px;border-radius:9px;background:#e5eee8;color:#2f684b;display:grid;place-items:center;font-size:21px;font-weight:700;flex:0 0 auto}.upload-copy{display:flex;flex-direction:column;gap:4px;min-width:0;color:#315844}.upload-copy strong{font-size:13px}.upload-copy small{font-size:11px;font-weight:500;color:#7a877f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.photo-dropzone.has-file{border-style:solid;border-color:#9bb3a3}.remove-photo{justify-self:start;border:0;background:none;padding:0;color:#6b786f;font-size:11px;font-weight:700;text-decoration:underline;cursor:pointer}
+
+
+/* Community submissions use NEW instead of a sequence number. */
+.problem-index-new{font-family:Inter,sans-serif;font-size:11px;letter-spacing:.06em;color:#62766a}
+
+/* Preview must match one real 3-column project card, not fill the modal column. */
+.idea-builder{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.idea-preview-wrap{width:min(100%,460px);justify-self:start}
+.idea-preview{width:100%;height:auto!important;min-height:0!important}
+@media(min-width:1051px){.idea-preview-wrap{width:min(100%,460px)}.idea-preview{min-height:0!important;height:auto!important}}
+@media(max-width:1050px){.idea-preview-wrap{width:100%}.idea-preview{min-height:0!important;height:auto!important}}
+
+
+/* WYSIWYG: preview uses the exact desktop grid-card footprint. */
+@media(min-width:1051px){
+  .idea-modal{width:min(1320px,96vw)}
+  .idea-builder{grid-template-columns:minmax(420px,1fr) minmax(0,1fr)}
+  .idea-preview-wrap{width:100%;max-width:none}
+  .idea-preview{width:100%;height:100%!important;min-height:0!important}
+  .idea-preview-wrap{height:100%}
+  .idea-builder{align-items:stretch}
+}
+
+
+/* Minimal modal close control: plain X, no outlined button chrome. */
+.idea-close{border:0;background:transparent;border-radius:0;width:auto;height:auto;padding:4px 6px;color:#315844;font-size:28px;font-weight:400;line-height:1;box-shadow:none}
+.idea-close:hover{color:#123f2c;background:transparent}
+
+
+/* Do not stretch preview to the height of the form column. Match the real project-card row height. */
+@media(min-width:1051px){
+  .idea-builder{align-items:start}
+  .idea-preview-wrap{height:auto}
+  .idea-preview{height:330px!important;min-height:330px!important;max-height:330px}
+}
+
+
+/* One canonical style for community cards AND their live preview. */
+.submitted-project-card{min-height:0;height:100%;padding:16px 20px 17px}
+.submitted-project-card .problem-card-top{grid-template-columns:1fr}
+.submitted-project-card .problem-heading{grid-template-columns:58px 1fr;gap:12px;padding-right:34px}
+.submitted-project-card .road-sign{width:56px;height:56px}
+.submitted-project-card .problem-fact{margin-top:10px}
+.submitted-project-card .problem-question{margin-top:7px;line-height:1.45}
+.submitted-project-card .idea-byline{margin:auto 0 0;padding-top:12px}
+.submitted-placeholder{border-style:dashed!important;border-color:#2f684b!important;background:#fff!important;color:#2f684b;font-size:25px;font-weight:800}
+.submitted-placeholder span{display:block;line-height:1}
+@media(min-width:1051px){.idea-preview{height:100%!important;min-height:0!important;max-height:none}.idea-preview-wrap{height:330px}}
+@media(max-width:760px){.submitted-project-card{height:auto}.submitted-project-card .problem-heading{grid-template-columns:56px 1fr;padding-right:32px}.submitted-project-card .road-sign{width:54px;height:54px}.idea-preview-wrap{height:auto}}
+
+
+/* Keep card dimensions stable even when the last pagination page has fewer items. */
+@media(min-width:1051px){
+  .problem-grid{grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:330px;align-items:stretch}
+  .problem-card,.submitted-project-card,.problem-card-cta{height:330px!important;min-height:330px!important;max-height:330px}
+}
+
+
+/* Final card sizing: compact fixed desktop rows without stretching partial pages. */
+@media(min-width:1051px){
+  .problem-grid{grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:240px;align-content:start}
+  .problem-card,.submitted-project-card,.problem-card-cta{height:240px!important;min-height:240px!important;max-height:240px}
+  .idea-preview-wrap{height:240px}
+}
