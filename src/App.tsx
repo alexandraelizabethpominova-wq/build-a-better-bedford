@@ -136,7 +136,8 @@ function App() {
     photoUrl: idea.photo_url,
     submitterName: idea.submitter_name,
   }))
-  const regularProjects = [...projectProblems.filter(problem => !problem.cta), ...submittedProjectCards]
+  // Community submissions come first, followed by the built-in project prompts.
+  const regularProjects = [...submittedProjectCards, ...projectProblems.filter(problem => !problem.cta)]
   // Six cards total per page: five projects + the always-visible idea CTA.
   const regularProjectsPerPage = projectsPerPage - 1
   const projectPageCount = Math.max(1, Math.ceil(regularProjects.length / regularProjectsPerPage))
@@ -148,7 +149,7 @@ function App() {
   const visibleProjects = [...pageProjects, ideaCard].slice(0, projectsPerPage)
 
   useEffect(() => {
-    supabase.from('project_ideas').select('id,title,subtitle,description,submitter_name,photo_url').order('created_at', { ascending: true })
+    supabase.from('project_ideas').select('id,title,subtitle,description,submitter_name,photo_url').order('created_at', { ascending: false })
       .then(({ data }) => {
         if (data) {
           const uniqueIdeas = Array.from(new Map((data as SubmittedIdea[]).map(idea => [idea.id, idea])).values())
@@ -224,7 +225,7 @@ function App() {
       const { data: refreshedIdeas } = await supabase
         .from('project_ideas')
         .select('id,title,subtitle,description,submitter_name,photo_url')
-        .order('created_at', { ascending: true })
+        .order('created_at', { ascending: false })
       if (refreshedIdeas) {
         const uniqueIdeas = Array.from(new Map((refreshedIdeas as SubmittedIdea[]).map(idea => [idea.id, idea])).values())
         setSubmittedIdeas(uniqueIdeas)
