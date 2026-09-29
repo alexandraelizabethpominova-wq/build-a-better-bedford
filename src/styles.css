@@ -251,3 +251,8 @@ footer{min-height:38px;font-size:9.5px}
   .idea-preview-wrap{height:100%}
   .idea-builder{align-items:stretch}
 }
+
+
+/* Minimal modal close control: plain X, no outlined button chrome. */
+.idea-close{border:0;background:transparent;border-radius:0;width:auto;height:auto;padding:4px 6px;color:#315844;font-size:28px;font-weight:400;line-height:1;box-shadow:none}
+.idea-close:hover{color:#123f2c;background:transparent}
