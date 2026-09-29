@@ -124,6 +124,28 @@ function App() {
   const [ideaMessage, setIdeaMessage] = useState('')
   const [editingIdeaId, setEditingIdeaId] = useState<number | null>(null)
   const [existingPhotoUrl, setExistingPhotoUrl] = useState<string | null>(null)
+
+  // Privacy-friendly analytics: keep a random ID in this browser, hash it before
+  // sending it to Supabase, and never collect names, emails, or precise location.
+  useEffect(() => {
+    const recordVisit = async () => {
+      try {
+        const storageKey = 'bbb-anonymous-visitor'
+        let anonymousId = localStorage.getItem(storageKey)
+        if (!anonymousId) {
+          anonymousId = crypto.randomUUID()
+          localStorage.setItem(storageKey, anonymousId)
+        }
+        const bytes = new TextEncoder().encode(anonymousId)
+        const digest = await crypto.subtle.digest('SHA-256', bytes)
+        const visitorId = Array.from(new Uint8Array(digest), byte => byte.toString(16).padStart(2, '0')).join('')
+        await supabase.from('page_visits').insert({ visitor_id: visitorId, page })
+      } catch (error) {
+        console.warn('Anonymous analytics unavailable:', error)
+      }
+    }
+    recordVisit()
+  }, [page])
   const projectsPerPage = 6
   const ideaCard = projectProblems.find(problem => problem.cta)!
   const submittedProjectCards: ProjectCard[] = submittedIdeas.map((idea) => ({
