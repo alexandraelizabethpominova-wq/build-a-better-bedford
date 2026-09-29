@@ -240,3 +240,14 @@ footer{min-height:38px;font-size:9.5px}
 .idea-preview{width:100%;height:auto!important;min-height:0!important}
 @media(min-width:1051px){.idea-preview-wrap{width:min(100%,460px)}.idea-preview{min-height:0!important;height:auto!important}}
 @media(max-width:1050px){.idea-preview-wrap{width:100%}.idea-preview{min-height:0!important;height:auto!important}}
+
+
+/* WYSIWYG: preview uses the exact desktop grid-card footprint. */
+@media(min-width:1051px){
+  .idea-modal{width:min(1320px,96vw)}
+  .idea-builder{grid-template-columns:minmax(420px,1fr) minmax(0,1fr)}
+  .idea-preview-wrap{width:100%;max-width:none}
+  .idea-preview{width:100%;height:100%!important;min-height:0!important}
+  .idea-preview-wrap{height:100%}
+  .idea-builder{align-items:stretch}
+}
