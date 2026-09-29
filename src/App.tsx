@@ -133,7 +133,12 @@ function App() {
 
   useEffect(() => {
     supabase.from('project_ideas').select('id,title,subtitle,description,submitter_name,photo_url').order('created_at', { ascending: true })
-      .then(({ data }) => { if (data) setSubmittedIdeas(data as SubmittedIdea[]) })
+      .then(({ data }) => {
+        if (data) {
+          const uniqueIdeas = Array.from(new Map((data as SubmittedIdea[]).map(idea => [idea.id, idea])).values())
+          setSubmittedIdeas(uniqueIdeas)
+        }
+      })
   }, [])
 
   const updateIdea = (field: keyof IdeaForm, value: string) => setIdeaForm(form => ({ ...form, [field]: value }))
@@ -162,7 +167,16 @@ function App() {
     }).select('id,title,subtitle,description,submitter_name,photo_url').single()
     if (error) setIdeaMessage('Could not submit your idea. Please try again.')
     else {
-      setSubmittedIdeas(items => [...items, data as SubmittedIdea])
+      // Reload from Supabase instead of appending locally. This keeps one canonical
+      // copy of each persisted idea even if development effects/refetches run twice.
+      const { data: refreshedIdeas } = await supabase
+        .from('project_ideas')
+        .select('id,title,subtitle,description,submitter_name,photo_url')
+        .order('created_at', { ascending: true })
+      if (refreshedIdeas) {
+        const uniqueIdeas = Array.from(new Map((refreshedIdeas as SubmittedIdea[]).map(idea => [idea.id, idea])).values())
+        setSubmittedIdeas(uniqueIdeas)
+      }
       setIdeaForm(emptyIdea); chooseIdeaPhoto(null); setIdeaMessage('Idea added!')
       setTimeout(() => { setIdeaOpen(false); setIdeaMessage('') }, 700)
     }
