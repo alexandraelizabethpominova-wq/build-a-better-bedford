@@ -294,7 +294,8 @@ function App() {
             <div className="idea-preview-wrap">
               <p className="preview-label">LIVE PREVIEW</p>
               <article className="problem-card idea-preview">
-                <div className="problem-card-top"><span>NEW</span><div className="problem-heading">
+                <span className="problem-index">NEW</span>
+                <div className="problem-card-top"><div className="problem-heading">
                   {ideaPhotoPreview ? <div className="road-sign submitted-photo"><img src={ideaPhotoPreview} alt="Uploaded preview" /></div> : <div className="idea-mark">?</div>}
                   <h2>{ideaForm.title || 'Your idea title'}</h2>
                 </div></div>
