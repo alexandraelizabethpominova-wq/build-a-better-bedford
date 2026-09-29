@@ -256,3 +256,11 @@ footer{min-height:38px;font-size:9.5px}
 /* Minimal modal close control: plain X, no outlined button chrome. */
 .idea-close{border:0;background:transparent;border-radius:0;width:auto;height:auto;padding:4px 6px;color:#315844;font-size:28px;font-weight:400;line-height:1;box-shadow:none}
 .idea-close:hover{color:#123f2c;background:transparent}
+
+
+/* Do not stretch preview to the height of the form column. Match the real project-card row height. */
+@media(min-width:1051px){
+  .idea-builder{align-items:start}
+  .idea-preview-wrap{height:auto}
+  .idea-preview{height:330px!important;min-height:330px!important;max-height:330px}
+}
