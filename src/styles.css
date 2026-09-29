@@ -108,3 +108,18 @@ footer{min-height:38px;font-size:9.5px}
   .problem-heading{grid-template-columns:56px 1fr}
   .road-sign,.idea-mark{width:54px;height:54px}
 }
+
+
+/* Projects: wider cards with compact pagination. */
+.problem-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.problem-card{min-height:330px}
+.project-pagination{display:flex;align-items:center;justify-content:center;gap:14px;margin:2px 0}
+.pagination-pages{display:flex;align-items:center;gap:8px}
+.pagination-arrow,.pagination-page{border:1px solid #cfd8d1;background:#fff;color:#315844;cursor:pointer;font-weight:800;display:grid;place-items:center;transition:background .15s ease,border-color .15s ease}
+.pagination-arrow{width:42px;height:42px;border-radius:10px;font-size:18px}
+.pagination-page{width:38px;height:38px;border-radius:9px;font-size:13px}
+.pagination-page.active{background:#123f2c;border-color:#123f2c;color:#fff}
+.pagination-arrow:disabled{opacity:.3;cursor:default}
+.pagination-arrow:not(:disabled):hover,.pagination-page:not(.active):hover{background:#f1f5f2;border-color:#9daf9f}
+@media(max-width:1050px){.problem-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.problem-grid{grid-template-columns:1fr}.problem-card{min-height:0}.project-pagination{margin:18px 0}.pagination-arrow{width:44px;height:44px}.pagination-page{width:40px;height:40px}}
