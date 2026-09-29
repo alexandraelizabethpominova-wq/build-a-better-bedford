@@ -14,6 +14,18 @@ import './newsletter.css'
 
 type Page = 'home' | 'about' | 'what-we-do' | 'projects' | 'newsletter' | 'join'
 type SubmittedIdea = { id:number; title:string; subtitle:string; description:string; submitter_name:string|null; photo_url:string|null }
+type ProjectCard = {
+  id?: number
+  number: string
+  icon?: string
+  title: string
+  fact: string
+  question: string
+  cta?: boolean
+  isSubmitted?: boolean
+  photoUrl?: string | null
+  submitterName?: string | null
+}
 type IdeaForm = { title:string; subtitle:string; description:string; submitterName:string }
 const emptyIdea: IdeaForm = { title:'', subtitle:'', description:'', submitterName:'' }
 
@@ -24,7 +36,7 @@ const focusAreas = [
 ]
 
 
-const projectProblems = [
+const projectProblems: ProjectCard[] = [
   {
     number: '01',
     icon: crosswalkIcon,
@@ -112,7 +124,7 @@ function App() {
   const [ideaMessage, setIdeaMessage] = useState('')
   const projectsPerPage = 6
   const ideaCard = projectProblems.find(problem => problem.cta)!
-  const submittedProjectCards = submittedIdeas.map((idea) => ({
+  const submittedProjectCards: ProjectCard[] = submittedIdeas.map((idea) => ({
     id: idea.id,
     number: 'NEW',
     isSubmitted: true,
