@@ -158,3 +158,27 @@ footer{min-height:38px;font-size:9.5px}
   .pagination-page{width:35px;height:35px}
   .projects-source{margin-top:0;margin-bottom:4px}
 }
+
+
+/* Community idea submission + live card preview. */
+.idea-modal-backdrop{position:fixed;z-index:100;inset:0;background:rgba(15,32,23,.48);display:grid;place-items:center;padding:28px;overflow:auto}
+.idea-modal{width:min(1120px,96vw);max-height:92vh;overflow:auto;background:#fff;border-radius:18px;padding:28px 30px 30px;box-shadow:0 24px 80px rgba(12,35,24,.22)}
+.idea-modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:22px}
+.idea-modal-head h2{margin:0;font:500 44px/1 Georgia,"Times New Roman",serif;color:#15241b;letter-spacing:-.035em}
+.idea-close{border:1px solid #d8dfda;background:#fff;color:#315844;border-radius:10px;width:40px;height:40px;font-size:25px;line-height:1;cursor:pointer}
+.idea-builder{display:grid;grid-template-columns:minmax(0,1fr) minmax(340px,.85fr);gap:34px;align-items:start}
+.idea-form{display:grid;gap:15px}
+.idea-form label{display:grid;gap:7px;color:#31483b;font-size:12px;font-weight:800}
+.idea-form label span,.photo-upload span{font-weight:500;color:#7a877f}
+.idea-form input,.idea-form textarea{width:100%;border:1px solid #cfd8d1;border-radius:9px;padding:11px 12px;background:#fff;color:#17211b;font:500 14px/1.4 Inter,sans-serif;outline:none}
+.idea-form textarea{resize:vertical;min-height:112px}
+.idea-form input:focus,.idea-form textarea:focus{border-color:#2f684b;box-shadow:0 0 0 3px rgba(47,104,75,.09)}
+.photo-upload input{padding:9px}
+.idea-submit{justify-self:start;border:0;border-radius:9px;background:#123f2c;color:#fff;padding:13px 18px;font-size:13px;font-weight:800;cursor:pointer}
+.idea-submit:disabled{opacity:.6;cursor:wait}
+.idea-message{margin:0;color:#2f684b;font-size:12px;font-weight:700}
+.preview-label{margin:0 0 9px;color:#708077;font-size:10px;font-weight:800;letter-spacing:.14em}
+.idea-preview{min-height:330px!important}
+.idea-byline{margin:auto 0 0;padding-top:12px;color:#62766a;font-size:11px;font-weight:750}
+.submitted-photo img{object-fit:cover!important}
+@media(max-width:760px){.idea-modal-backdrop{padding:12px}.idea-modal{padding:20px 18px;max-height:95vh}.idea-modal-head h2{font-size:34px}.idea-builder{grid-template-columns:1fr}.idea-preview-wrap{order:-1}.idea-preview{min-height:0!important}.idea-submit{width:100%}}
