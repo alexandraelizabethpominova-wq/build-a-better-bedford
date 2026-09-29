@@ -128,3 +128,8 @@ footer{min-height:38px;font-size:9.5px}
 /* Keep project cards aligned to equal height within each page. */
 .problem-grid{align-items:stretch}
 .problem-card{height:100%}
+
+
+/* Make project sequence numbers easier to scan. */
+.problem-card-top>span{font-size:13px;line-height:1;font-weight:800;padding-top:5px;color:#62766a}
+@media(max-width:760px){.problem-card-top>span{font-size:12px}}
