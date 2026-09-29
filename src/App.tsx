@@ -72,6 +72,13 @@ const projectProblems = [
   },
   {
     number: '08',
+    icon: floodIcon,
+    title: 'Why Does This Spot Keep Flooding?',
+    fact: 'Heavy rain can overwhelm drainage and leave low-lying streets, paths, and public spaces with standing water.',
+    question: 'When the same place floods again and again, what is happening below the surface? We can investigate drainage, grading, pavement, soil, and green infrastructure—and explore how design could help water go somewhere better.'
+  },
+  {
+    number: '09',
     cta: true,
     title: 'YOUR IDEA HERE',
     fact: 'What Bedford problem do you notice that everyone else seems to walk past?',
