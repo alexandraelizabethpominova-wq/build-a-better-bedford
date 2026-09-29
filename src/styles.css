@@ -133,3 +133,10 @@ footer{min-height:38px;font-size:9.5px}
 /* Make project sequence numbers easier to scan. */
 .problem-card-top>span{font-size:13px;line-height:1;font-weight:800;padding-top:5px;color:#62766a}
 @media(max-width:760px){.problem-card-top>span{font-size:12px}}
+
+
+/* Give the Projects grid breathing room above the footer. */
+.site-shell:has(.projects-page){height:auto;min-height:100svh;overflow:auto;grid-template-rows:auto 1fr auto}
+.projects-page{padding-bottom:34px}
+.projects-source{margin-top:6px;margin-bottom:10px}
+@media(max-width:760px){.projects-page{padding-bottom:28px}.projects-source{margin-bottom:8px}}
