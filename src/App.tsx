@@ -232,8 +232,8 @@ function App() {
 
       <div className="problem-grid">
         {visibleProjects.map(problem => <article className={problem.cta ? 'problem-card problem-card-cta' : 'problem-card'} key={problem.number}>
+          {!problem.cta && <span className="problem-index">{problem.number}</span>}
           <div className="problem-card-top">
-            {!problem.cta && <span>{problem.number}</span>}
             <div className={problem.cta ? 'problem-heading problem-heading-cta' : 'problem-heading'}>
               {problem.cta
                 ? <div className="idea-mark">?</div>
